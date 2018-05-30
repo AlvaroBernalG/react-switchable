@@ -12,8 +12,6 @@ const Overlay = props => {
     <span
       {...rest}
       draggable
-      onDragStart={() => this.onDragStart()}
-      onDragEnd={() => this.onDragEnd()}
       className={getOverlayClasses(classTransition)}
       style={{
         width: `${100 / items}%`,
