@@ -10,7 +10,8 @@
     "lint": "eslint --ext .js,.jsx src/ examples/src",
     "test": "jest",
     "test:watch": "jest --watch",
-    "analyze-bundle": "webpack -p --profile --json > stats.json && webpack-bundle-analyzer stats.json examples/dist -s gzip"
+    "analyze-bundle":
+      "webpack -p --profile --json > stats.json && webpack-bundle-analyzer stats.json examples/dist -s gzip"
   },
   "repository": {
     "type": "git"

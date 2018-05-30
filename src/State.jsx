@@ -1,7 +1,7 @@
-import React from 'react'
-import classNames from 'classnames'
-import PropTypes from 'prop-types'
-import './State.scss'
+import React from "react";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import "./State.scss";
 
 const State = props => {
   const {
@@ -13,25 +13,25 @@ const State = props => {
     disable,
     value,
     ...rest
-  } = props
+  } = props;
   return (
     <span
       {...rest}
       onKeyDown={onKeyDown}
       onClick={onClick}
-      role='radio'
+      role="radio"
       aria-checked={active}
       tabIndex={tabIndex}
-      className={classNames('switch__state', [classes], {
-        'switch__state--on': active,
-        'switch__state--disable': disable
+      className={classNames("switch__state", [classes], {
+        "switch__state--on": active,
+        "switch__state--disable": disable
       })}
     >
       {props.children}
-      <input type='radio' value={value} hidden />
+      <input type="radio" value={value} hidden />
     </span>
-  )
-}
+  );
+};
 
 State.propTypes = {
   value: PropTypes.string.isRequired,
@@ -42,16 +42,16 @@ State.propTypes = {
   active: PropTypes.bool,
   tabIndex: PropTypes.number,
   classes: PropTypes.arrayOf(PropTypes.string)
-}
+};
 
 State.defaultProps = {
-  children: '',
+  children: "",
   onClick: () => {},
   onKeyDown: () => {},
   active: false,
   disable: false,
   tabIndex: 0,
   classes: []
-}
+};
 
-export default State
+export default State;

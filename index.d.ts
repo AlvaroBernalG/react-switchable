@@ -62,8 +62,8 @@ export interface ReactSwitchProps {
   tabIndex?: number;
 }
 
-declare class ReactSwitch extends React.Component<ReactSwitchProps> {}
+declare class ReactSwitchable extends React.Component<ReactSwitchProps> {}
 
-declare class ReactSwitchState extends React.Component<ReactStateProps> {}
+declare class ReactSwitchableState extends React.Component<ReactStateProps> {}
 
-export default ReactSwitch;
+export default ReactSwitchable;
