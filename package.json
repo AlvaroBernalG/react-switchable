@@ -4,7 +4,9 @@
   "description": "A customisable react switch component",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src -d dist",
+    "prepublish": "rm -rf dist/ && npm run build",
+    "build:example": "babel src -d dist",
+    "build": "webpack --config './webpack.config.dist.js'",
     "examples:dev": "webpack-dev-server --mode development",
     "format": "prettier --write '**/*.{js,jsx,json}'",
     "lint": "eslint --ext .js,.jsx src/ examples/src",
