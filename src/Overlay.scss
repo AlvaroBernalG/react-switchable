@@ -1,0 +1,14 @@
+@import 'Global';
+.switch__overlay {
+  position: absolute;
+  height: $overlay_height;
+  border-radius: $overlay_border_radius;
+  background-color: $overlay_background_color;
+  box-shadow: $overlay_box_shadow;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.switch__overlay-transition {
+  transition: $overlay_transition;
+}

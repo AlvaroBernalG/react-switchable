@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Muli');
+body,
+html {
+  height: 100%;
+}
+
+.demo {
+  height: 100vh;
+  width: 100wh;
+  display: flex;
+  justify-content: center;
+  flex-align: center;
+  align-items: center;
+  font-family: Muli;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  line-heigth: 18px;
+  color: white;
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz {
+  width: 710px;
+  height: 365px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-image: linear-gradient(to bottom, rgba(250, 145, 97, 0.7), rgba(247, 59, 28, 0.69));
+  box-shadow: 0 2px 12px 6px rgba(167, 196, 220, 0.5);
+}

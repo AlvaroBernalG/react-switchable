@@ -1,0 +1,28 @@
+@import 'Global';
+.switch__state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: $state_letter_spacing;
+  cursor: pointer;
+  width: $state_width;
+  height: $state_height;
+  padding: $state_padding;
+  font-weight: $state_font_weight;
+  background: $state_background;
+  overflow: visible;
+  color: inherit;
+  font: inherit;
+  border: none;
+  &:not(.switch__state--disable):hover {
+    color: $state_color_hover;
+  }
+}
+
+.switch__state--on {
+  z-index: 2;
+  color: $state_color_onActive !important;
+  font-weight: bold;
+}
+
+.switch__state--disable {}

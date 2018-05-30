@@ -1,0 +1,46 @@
+/*  Switch -> The container
+
+    *------------------------*
+    |                        |
+    |                        |
+    *------------------------*
+*/
+
+$switch_width: 610px;
+$switch_height: 100%;
+$switch_min_height: 45px;
+$switch_margin: 10px;
+$switch_border_radius: 100px;
+$switch_border_color: white;
+/*  State -> Every Item inside the container 
+
+    *------*-----------------*
+    | Item |                 |
+    |      |                 |
+    *------*-----------------*
+*/
+
+$state_width: 100%;
+$state_height: 100%;
+$state_padding: 15px;
+$state_color: inherit;
+$state_fontFamily: 'Muli';
+$state_letter_spacing: 1.2px;
+$state_font_weight: bold;
+$state_color_hover: darken(white, 10%);
+$state_background: transparent;
+$state_color_onActive:#ff5722;
+/*   Overlay -> The layer that covers every item when item is active.
+
+    *------*-----------------*
+    | On   |                 |
+    |      |                 |
+    *------*-----------------*
+*/
+
+$overlay_height: 100%;
+$overlay_background_color: rgba(249, 249, 249, 0.5);
+$overlay_border_radius: $switch_border_radius;
+$overlay_box_shadow: 0 0 6px 1px rgba(1, 115, 101, 0.5);
+$overlay_transition: all 0.4s ease;
+// State modifiers
