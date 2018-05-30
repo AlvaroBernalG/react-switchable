@@ -31,7 +31,7 @@ class App extends React.Component {
             </State>
           </Switch>
           <p>
-            {`According to you, the Eiffel tower is located in
+            {`According to you, the Eiffel tower is located in:
             ${this.state.country}, ${this.state.city}.`}
           </p>
         </div>

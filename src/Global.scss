@@ -30,7 +30,9 @@ $state_letter_spacing: 1.2px;
 $state_font_weight: bold;
 $state_color_hover: darken(white, 10%);
 $state_background: transparent;
-$state_color_onActive:#ff5722;
+
+// On Active:
+$state_color_onActive: #e66549;
 
 /*   Overlay -> The layer that covers every item when item is active.
 
@@ -43,6 +45,9 @@ $state_color_onActive:#ff5722;
 $overlay_height: 100%;
 $overlay_background_color: rgba(249, 249, 249, 0.5);
 $overlay_border_radius: $switch_border_radius;
-$overlay_box_shadow: 0 0 6px 1px rgba(1, 115, 101, 0.5);
+$overlay_box_shadow: 0 0 6px 1px #e66549;
 $overlay_transition: all 0.4s ease;
+
+// On Active:
+
 // State modifiers
