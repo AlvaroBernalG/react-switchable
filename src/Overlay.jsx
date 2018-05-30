@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Overlay.scss";
 
-
 const Overlay = props => {
   const { goTo, items, classTransition, className, ...rest } = props;
   return (
@@ -20,11 +19,14 @@ const Overlay = props => {
 
 Overlay.propTypes = {
   goTo: PropTypes.number.isRequired,
-  items: PropTypes.number.isRequired
+  items: PropTypes.number.isRequired,
+  classTransition: PropTypes.string,
+  className: PropTypes.string
 };
 
 Overlay.defaultProps = {
-  classTransition: "abg-switch__overlay-transition"
+  classTransition: "abg-switch__overlay-transition",
+  className: ""
 };
 
 export default Overlay;

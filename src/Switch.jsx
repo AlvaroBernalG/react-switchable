@@ -19,7 +19,7 @@ export default class Switch extends Component {
     onChange: () => {},
     tabIndex: 0,
     disable: false,
-    className: ''
+    className: ""
   };
 
   state = {
@@ -87,7 +87,7 @@ export default class Switch extends Component {
     );
 
     return (
-      <div { ...rest } className={classStyle}>
+      <div {...rest} className={classStyle}>
         <div
           onKeyDown={e => this.onSwitchKeyDown(e)}
           className="abg-switch__container"
