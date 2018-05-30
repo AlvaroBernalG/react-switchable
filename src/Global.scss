@@ -12,6 +12,7 @@ $switch_min_height: 45px;
 $switch_margin: 10px;
 $switch_border_radius: 100px;
 $switch_border_color: white;
+
 /*  State -> Every Item inside the container 
 
     *------*-----------------*
@@ -30,6 +31,7 @@ $state_font_weight: bold;
 $state_color_hover: darken(white, 10%);
 $state_background: transparent;
 $state_color_onActive:#ff5722;
+
 /*   Overlay -> The layer that covers every item when item is active.
 
     *------*-----------------*
