@@ -1,11 +1,12 @@
 import * as React from 'react';
 
 export interface ReactStateProps {
+
   /**
    * Should the state be checked by default ?.
    *
-   * defaults to false. If none of the State component inside a Switch has this attributes
-   * it defaults to the first State.
+   * Defaults to false. If the attribute is not specified in any of the State
+   * components the first element from left to right gets activate.
    *
    */
   default?: boolean;
@@ -14,28 +15,42 @@ export interface ReactStateProps {
    * The value/identifier of the State component.
    */
   value: string;
+
+  /**
+   * The tab index of the State component.
+   *
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
+   *
+   * Defaults to 0.
+   *
+   */
+  tabIndex?: number;
 }
 
 export interface ReactSwitchProps {
+
   /**
    * Invoked when the user changes the state of the switch.
    *
    * **value** describes the value of the state that is being activate.
    *
-   * **newPosition** the index of the item.
+   * **newPosition** the index of the item that is being activate.
    *
-   *  **id** is the ID prop of the switch.
+   * **id** The ID prop of the switch.
    *
-   */
+   * */
   onChange: (value: string, newPosition: number, child: React.CElement) => void;
 
   /**
-   * When true, the switch will no longer be interactive and its colors will be greyed out.
+   * When true, the switch will no longer be interactive * and the colors will 
+   * be greyed out.
    */
   disabled?: boolean;
 
   /**
-   * The tabIndex that the outer switch shell should obtain.
+   * The tab index of the state component.
+   *
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
    *
    * Defaults to 0.
    */
