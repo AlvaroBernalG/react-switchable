@@ -3,7 +3,7 @@
 exports[`it matches the snapshot 1`] = `
 <span
   aria-checked={false}
-  className="switch__state "
+  className="abg-switch__state "
   onClick={[Function]}
   onKeyDown={[Function]}
   role="radio"

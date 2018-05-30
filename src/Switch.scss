@@ -1,12 +1,12 @@
 @import 'Global';
-.switch {
+.abg-switch {
   width: $switch_width;
   min-height: $switch_min_height;
   box-sizing: border-box;
   margin: $switch_margin;
 }
 
-.switch__container {
+.abg-switch__container {
   position: relative;
   display: flex;
   align-items: center;
@@ -18,11 +18,5 @@
   z-index: 1;
 }
 
-.switch--disable {}
+.abg-switch--disable {}
 
-// Fail
-.switch--fail {
-  .switch__overlay {
-    // box-shadow: 0 0 6px 1px $fail_overlay_shadow_color;
-  }
-}

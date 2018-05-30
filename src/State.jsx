@@ -22,9 +22,9 @@ const State = props => {
       role="radio"
       aria-checked={active}
       tabIndex={tabIndex}
-      className={classNames("switch__state", [className], {
-        "switch__state--on": active,
-        "switch__state--disable": disable
+      className={classNames("abg-switch__state", [className], {
+        "abg-switch__state--on": active,
+        "abg-switch__state--disable": disable
       })}
     >
       {props.children}

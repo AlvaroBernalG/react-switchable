@@ -3,16 +3,13 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Overlay.scss";
 
-const getOverlayClasses = classTransition =>
-  classNames("switch__overlay", ([classTransition]: true));
 
 const Overlay = props => {
-  const { goTo, items, classTransition, ...rest } = props;
+  const { goTo, items, classTransition, className, ...rest } = props;
   return (
     <span
       {...rest}
-      draggable
-      className={getOverlayClasses(classTransition)}
+      className={classNames("abg-switch__overlay", [className])}
       style={{
         width: `${100 / items}%`,
         transform: `translateX(${100 * goTo}%)`
@@ -23,12 +20,11 @@ const Overlay = props => {
 
 Overlay.propTypes = {
   goTo: PropTypes.number.isRequired,
-  items: PropTypes.number.isRequired,
-  classTransition: PropTypes.string
+  items: PropTypes.number.isRequired
 };
 
 Overlay.defaultProps = {
-  classTransition: "switch__overlay-transition"
+  classTransition: "abg-switch__overlay-transition"
 };
 
 export default Overlay;

@@ -81,16 +81,16 @@ export default class Switch extends Component {
     const { disable, children, tabIndex, className, ...rest } = this.props;
 
     const classStyle = classNames(
-      "switch",
+      "abg-switch",
       [className],
-      ("switch--disable": disable)
+      ("abg-switch--disable": disable)
     );
 
     return (
       <div { ...rest } className={classStyle}>
         <div
           onKeyDown={e => this.onSwitchKeyDown(e)}
-          className="switch__container"
+          className="abg-switch__container"
           role="radiogroup"
           tabIndex={disable ? -1 : tabIndex}
         >

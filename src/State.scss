@@ -1,5 +1,5 @@
 @import 'Global';
-.switch__state {
+.abg-switch__state {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,10 +19,10 @@
   }
 }
 
-.switch__state--on {
+.abg-switch__state--on {
   z-index: 2;
   color: $state_color_onActive !important;
   font-weight: bold;
 }
 
-.switch__state--disable {}
+.abg-switch__state--disable {}
