@@ -48,13 +48,6 @@ export interface ReactSwitchProps {
   classes?: string;
 
   /**
-   * The id of the embedded checkbox.
-   *
-   * Defaults to undefined.
-   */
-  id?: string;
-
-  /**
    * The tabIndex that the outer switch shell should obtain.
    *
    * Defaults to 0.
