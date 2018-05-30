@@ -4,8 +4,6 @@ exports[`<Overlay /> it matches the snapshot 1`] = `
 <span
   className="switch__overlay switch__overlay-transition"
   draggable={true}
-  onDragEnd={[Function]}
-  onDragStart={[Function]}
   style={
     Object {
       "transform": "translateX(0%)",
