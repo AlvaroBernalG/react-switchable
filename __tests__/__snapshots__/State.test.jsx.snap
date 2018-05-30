@@ -13,7 +13,7 @@ exports[`it matches the snapshot 1`] = `
   <input
     hidden={true}
     type="radio"
-    value={undefined}
+    value="hola"
   />
 </span>
 `;
