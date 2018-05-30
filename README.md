@@ -46,7 +46,11 @@ Prop | Type | Required | Default | Description
 `default` | boolean | No | false | Sets the state as active. 
 
 
+## Contribuiting
+
+All contributions are welcome.
 
 ## License
 
-MIT license.
+MIT license @[Alvaro Bernal G](https://alvarobg.com).
+
