@@ -3,22 +3,41 @@ import ReactDOM from "react-dom";
 import Switch, { State } from "../../src/";
 import "./Example.scss";
 
-const App = () => (
-  <div className="demo">
-    <div className="quiz">
-      <Switch className="test">
-        <State value="state 0">State 0</State>
-        <State value="State 2">State 2</State>
-        <State value="State 3">State 3</State>
-      </Switch>
-      <Switch>
-        <State value="State 1">State 1</State>
-        <State value="State 2">State 2</State>
-        <State default value="State 3">State 3</State>
-        <State value="State 3">State 4</State>
-      </Switch>
-    </div>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    country: "France",
+    city: "Caracas"
+  };
+
+  render() {
+    return (
+      <div className="demo">
+        <div className="quiz">
+          <h1> What is the location of the Eiffel tower</h1>
+          <Switch onChange={country => this.setState({ country })}>
+            <State value="Uk">UK</State>
+            <State value="Venezuela">Venezuela</State>
+            <State value="Nigeria">Nigeria</State>
+            <State default value="France">
+              France
+            </State>
+          </Switch>
+          <Switch onChange={city => this.setState({ city })}>
+            <State value="London">London</State>
+            <State value="Paris">Paris</State>
+            <State value="Lagos">Lagos</State>
+            <State default value="Caracas">
+              Caracas
+            </State>
+          </Switch>
+          <p>
+            {`According to you, the Eiffel tower is located in
+            ${this.state.country}, ${this.state.city}.`}
+          </p>
+        </div>
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(<App />, document.getElementById("app"));
