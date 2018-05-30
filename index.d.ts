@@ -14,14 +14,8 @@ export interface ReactStateProps {
    * The value/identifier of the State component.
    */
   value: string;
-
-  /**
-   * Custom classNames.
-   *
-   * Defaults to undefined.
-   */
-  classes?: string;
 }
+
 export interface ReactSwitchProps {
   /**
    * Invoked when the user changes the state of the switch.
@@ -39,13 +33,6 @@ export interface ReactSwitchProps {
    * When true, the switch will no longer be interactive and its colors will be greyed out.
    */
   disabled?: boolean;
-
-  /**
-   * The classNames of the outer shell of the switch.
-   *
-   * Defaults to undefined.
-   */
-  classes?: string;
 
   /**
    * The tabIndex that the outer switch shell should obtain.

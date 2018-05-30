@@ -9,7 +9,7 @@ const State = props => {
     onClick,
     active,
     tabIndex,
-    classes,
+    className,
     disable,
     value,
     ...rest
@@ -22,7 +22,7 @@ const State = props => {
       role="radio"
       aria-checked={active}
       tabIndex={tabIndex}
-      className={classNames("switch__state", [classes], {
+      className={classNames("switch__state", [className], {
         "switch__state--on": active,
         "switch__state--disable": disable
       })}
@@ -41,7 +41,7 @@ State.propTypes = {
   disable: PropTypes.bool,
   active: PropTypes.bool,
   tabIndex: PropTypes.number,
-  classes: PropTypes.arrayOf(PropTypes.string)
+  className: PropTypes.arrayOf(PropTypes.string)
 };
 
 State.defaultProps = {
@@ -51,7 +51,7 @@ State.defaultProps = {
   active: false,
   disable: false,
   tabIndex: 0,
-  classes: []
+  className: []
 };
 
 export default State;

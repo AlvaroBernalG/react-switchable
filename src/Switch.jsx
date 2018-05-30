@@ -11,14 +11,12 @@ export default class Switch extends Component {
       .isRequired,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
-    classes: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string)]),
     disable: PropTypes.bool
   };
 
   static defaultProps = {
     onChange: () => {},
     tabIndex: 0,
-    classes: [],
     disable: false
   };
 
@@ -78,15 +76,16 @@ export default class Switch extends Component {
   }
 
   render() {
-    const { disable, children, tabIndex, classes } = this.props;
+    const { disable, children, tabIndex, className, ...rest } = this.props;
+
     const classStyle = classNames(
       "switch",
-      [classes],
+      [className],
       ("switch--disable": disable)
     );
 
     return (
-      <div className={classStyle}>
+      <div { ...rest } className={classStyle}>
         <div
           onKeyDown={e => this.onSwitchKeyDown(e)}
           className="switch__container"
