@@ -11,13 +11,15 @@ export default class Switch extends Component {
       .isRequired,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
-    disable: PropTypes.bool
+    disable: PropTypes.bool,
+    className: PropTypes.string
   };
 
   static defaultProps = {
     onChange: () => {},
     tabIndex: 0,
-    disable: false
+    disable: false,
+    className: ''
   };
 
   state = {
