@@ -4,21 +4,10 @@ import PropTypes from "prop-types";
 import "./State.scss";
 
 const State = props => {
-  const {
-    onKeyDown,
-    onClick,
-    active,
-    tabIndex,
-    className,
-    disable,
-    value,
-    ...rest
-  } = props;
+  const { active, tabIndex, className, disable, value, ...rest } = props;
   return (
     <span
       {...rest}
-      onKeyDown={onKeyDown}
-      onClick={onClick}
       role="radio"
       aria-checked={active}
       tabIndex={tabIndex}
@@ -36,22 +25,18 @@ const State = props => {
 State.propTypes = {
   value: PropTypes.string.isRequired,
   children: PropTypes.node,
-  onClick: PropTypes.func,
-  onKeyDown: PropTypes.func,
   disable: PropTypes.bool,
   active: PropTypes.bool,
   tabIndex: PropTypes.number,
-  className: PropTypes.arrayOf(PropTypes.string)
+  className: PropTypes.string
 };
 
 State.defaultProps = {
   children: "",
-  onClick: () => {},
-  onKeyDown: () => {},
   active: false,
   disable: false,
   tabIndex: 0,
-  className: []
+  className: ""
 };
 
 export default State;
