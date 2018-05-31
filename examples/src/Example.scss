@@ -1,20 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Muli');
 body,
 html {
-  height: 100%;
+  heigh: 100%;
 }
 
 .demo {
   height: 100vh;
-  width: 100wh;
+  width: 100wv;
   display: flex;
   justify-content: center;
-  flex-align: center;
   align-items: center;
   font-family: Muli;
   font-size: 14px;
   letter-spacing: 0.4px;
-  line-heigth: 18px;
+  line-height: 18px;
   color: white;
 }
 
