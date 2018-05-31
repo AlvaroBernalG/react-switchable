@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Overlay } from "./";
-import { proxy } from "./utils";
 import "./Switch.scss";
+
+export const proxy = fn => fnTarget => (...args) => {
+  fn(...args);
+  if (!fnTarget) return;
+  fnTarget.apply(fnTarget, args);
+};
 
 export default class Switch extends Component {
   static propTypes = {
@@ -16,7 +21,7 @@ export default class Switch extends Component {
   };
 
   static defaultProps = {
-    onChange: () => {},
+    onChange: undefined,
     tabIndex: 0,
     disable: false,
     className: ""
@@ -26,7 +31,7 @@ export default class Switch extends Component {
     activeIndex: this.getDefaultActiveIndex()
   };
 
-  onButtonClicked(position) {
+  onStateClicked(position) {
     if (this.props.disable) return;
 
     this.setChecked(position);
@@ -67,10 +72,12 @@ export default class Switch extends Component {
 
   injectChildCapabilities(child, index) {
     return {
-      onClick: child.props.onClick
-        ? proxy(this.onButtonClicked.bind(this, index))(child.props.onClick)
-        : this.onButtonClicked.bind(this, index),
-      onKeyDown: e => this.onStateKeyDown(index, e),
+      onClick: proxy(this.onStateClicked.bind(this, index))(
+        child.props.onClick
+      ),
+      onKeyDown: proxy(this.onStateKeyDown.bind(this, index))(
+        child.props.onKeyDown
+      ),
       active: index === this.state.activeIndex,
       tabIndex: this.props.disable ? -1 : child.props.tabIndex,
       disable: this.props.disable
