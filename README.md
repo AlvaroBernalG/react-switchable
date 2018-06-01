@@ -18,15 +18,45 @@ react switchable component, inspired by react-switch.
 
 import Switch, { State } from 'react-switchable';
 
-<Switch>
-  <State value='works'>
-    Works
+<Switch onValueChange={newValue => console.log('The new value is => ', newValue)}>
+  <State value='Hot'>
+    Hot
   </State>
-  <State value='works 2'>
-    Works 2
+  <State default value='Cold'>
+    Cold
   </State>
 </Switch>
 ``` 
+
+You can have as many state as you would like:
+
+```jsx
+
+import Switch, { State } from 'react-switchable';
+
+<div>
+  <h1> What is the capital of Venezuela ? </h1>
+  <Switch 
+    onValueChange={capital => checkCorrectAnswer(capital)}>
+    <State value='London'>
+      London
+    </State>
+    <State value='Caracas'>
+      Caracas
+    </State>
+    <State value='Lagos'>
+      Lagos
+    </State>
+    <State value='Beijing'>
+      Beijing
+    </State>
+    <State default value='Moscow'>
+      Moscow
+    </State>
+  </Switch>
+</div>
+``` 
+
 
 ## API
 
@@ -36,7 +66,7 @@ Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
 `onValueChange`| function | No |  "" | Fires when the switch state changes.
 `disable` | boolean | No | false | Disables the switch. 
-`tabIndex` | number | No | 0 | Sets the tabIndex of the switch component.
+`tabIndex` | number | No | 0 | Sets the [tabIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 ### State
 
@@ -44,9 +74,11 @@ Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
 `value`| string | Yes |  "" | Fires when the switch state changes.
 `default` | boolean | No | false | Sets the state as active. 
+`tabIndex` | number | No | 0 | Sets the [tabindex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 
-## Contribuiting
+
+## Contributing
 
 All contributions are welcome.
 
