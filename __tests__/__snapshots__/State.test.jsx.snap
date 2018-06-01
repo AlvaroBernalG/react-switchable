@@ -9,7 +9,7 @@ exports[`it matches the snapshot 1`] = `
 >
    Hola 
   <input
-    hidden={true}
+    checked={false}
     type="radio"
     value="hola"
   />

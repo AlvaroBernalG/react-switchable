@@ -17,6 +17,9 @@
   &:not(.switch__state--disable):hover {
     color: $state_color_hover;
   }
+  input {
+    display: none;
+  }
 }
 
 .abg-switch__state--on {

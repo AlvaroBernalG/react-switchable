@@ -9,7 +9,7 @@ version](https://badge.fury.io/js/react-switchable.svg)](https://badge.fury.io/j
 
 ---
 
-react switchable component, inspired by react-switch.
+React switchable component, inspired by react-switch.
 
 
 ## Usage
@@ -28,7 +28,7 @@ import Switch, { State } from 'react-switchable';
 </Switch>
 ``` 
 
-You can have as many state as you would like:
+You can have as many state children as you can fit:
 
 ```jsx
 
@@ -37,7 +37,7 @@ import Switch, { State } from 'react-switchable';
 <div>
   <h1> What is the capital of Venezuela ? </h1>
   <Switch 
-    onValueChange={capital => checkCorrectAnswer(capital)}>
+    onValueChange={capital => checkAnswer(capital)}>
     <State value='London'>
       London
     </State>
@@ -64,18 +64,17 @@ import Switch, { State } from 'react-switchable';
 
 Prop | Type | Required | Default | Description 
 -----|------|----------|---------|-------------
-`onValueChange`| function | No |  "" | Fires when the switch state changes.
+`onValueChange`| function | No |  "" | Fires when the switch changes the state.
 `disable` | boolean | No | false | Disables the switch. 
 `tabIndex` | number | No | 0 | Sets the [tabIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 ### State
 
-Prop | Type | Required | Default | Description 
+Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
-`value`| string | Yes |  "" | Fires when the switch state changes.
-`default` | boolean | No | false | Sets the state as active. 
+`value`| string | Yes |  "" | Represents the State value.
+`default` | boolean | No | false | Sets the State as active. 
 `tabIndex` | number | No | 0 | Sets the [tabindex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
-
 
 
 ## Contributing

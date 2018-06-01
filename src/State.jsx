@@ -17,7 +17,7 @@ const State = props => {
       })}
     >
       {props.children}
-      <input type="radio" value={value} hidden />
+      <input type="radio" value={value} checked={active} />
     </span>
   );
 };
