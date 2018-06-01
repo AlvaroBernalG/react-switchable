@@ -34,7 +34,7 @@ import Switch, { State } from 'react-switchable';
 
 Prop | Type | Required | Default | Description 
 -----|------|----------|---------|-------------
-`onChange`| function | No |  "" | Fires when the switch state changes.
+`onValueChange`| function | No |  "" | Fires when the switch state changes.
 `disable` | boolean | No | false | Disables the switch. 
 `tabIndex` | number | No | 0 | Sets the tabIndex of the switch component.
 

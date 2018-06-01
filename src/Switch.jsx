@@ -14,14 +14,14 @@ export default class Switch extends Component {
   static propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element)])
       .isRequired,
-    onChange: PropTypes.func,
+    onValueChange: PropTypes.func,
     tabIndex: PropTypes.number,
     disable: PropTypes.bool,
     className: PropTypes.string
   };
 
   static defaultProps = {
-    onChange: undefined,
+    onValueChange: undefined,
     tabIndex: 0,
     disable: false,
     className: ""
@@ -64,9 +64,9 @@ export default class Switch extends Component {
       activeIndex: newPosition
     });
 
-    if (this.props.onChange) {
+    if (this.props.onValueChange) {
       const child = this.props.children[newPosition];
-      this.props.onChange(child.props.value, newPosition, child);
+      this.props.onValueChange(child.props.value, newPosition, child);
     }
   }
 

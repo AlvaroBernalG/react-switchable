@@ -39,7 +39,7 @@ export interface ReactSwitchProps {
    * **id** The ID prop of the switch.
    *
    * */
-  onChange: (value: string, newPosition: number, child: React.CElement) => void;
+  onValueChange: (value: string, newPosition: number, child: React.CElement) => void;
 
   /**
    * When true, the switch will no longer be interactive * and the colors will 
