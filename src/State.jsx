@@ -20,7 +20,7 @@ const State = props => {
       className={classes}
     >
       {props.children}
-      <input type="radio" value={value} checked={active} />
+      <input type="radio" value={value} defaultChecked={active} />
     </span>
   );
 };
