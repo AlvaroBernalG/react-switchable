@@ -1,20 +1,23 @@
 import React from "react";
-import classNames from "classnames";
 import PropTypes from "prop-types";
 import "./State.scss";
 
 const State = props => {
   const { active, tabIndex, className, disable, value, ...rest } = props;
+  const classes = [
+    "abg-switch__state",
+    className,
+    active ? "abg-switch__state--on" : "",
+    disable ? "abg-switch__state--disable" : ""
+  ].join(" ");
+
   return (
     <span
       {...rest}
       role="radio"
       aria-checked={active}
       tabIndex={tabIndex}
-      className={classNames("abg-switch__state", [className], {
-        "abg-switch__state--on": active,
-        "abg-switch__state--disable": disable
-      })}
+      className={classes}
     >
       {props.children}
       <input type="radio" value={value} checked={active} />

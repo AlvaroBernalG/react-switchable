@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import "./Overlay.scss";
 
 const Overlay = props => {
   const { goTo, items, classTransition, className, ...rest } = props;
+  const classes = [className, "abg-switch__overlay"].join(" ");
   return (
     <span
       {...rest}
-      className={classNames("abg-switch__overlay", [className])}
+      className={classes}
       style={{
         width: `${100 / items}%`,
         transform: `translateX(${100 * goTo}%)`

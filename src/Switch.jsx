@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { Overlay } from "./";
 import "./Switch.scss";
 
@@ -94,14 +93,14 @@ export default class Switch extends Component {
       ...rest
     } = this.props;
 
-    const classStyle = classNames(
+    const classes = [
       "abg-switch",
-      [className],
-      ("abg-switch--disable": disable)
-    );
+      className,
+      disable ? "abg-switch--disable" : ""
+    ].join(" ");
 
     return (
-      <div {...rest} className={classStyle}>
+      <div {...rest} className={classes}>
         <div
           onKeyDown={e => this.onSwitchKeyDown(e)}
           className="abg-switch__container"

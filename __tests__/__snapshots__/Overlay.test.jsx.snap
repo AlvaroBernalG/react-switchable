@@ -2,7 +2,7 @@
 
 exports[`<Overlay /> it matches the snapshot 1`] = `
 <span
-  className="abg-switch__overlay "
+  className=" abg-switch__overlay"
   style={
     Object {
       "transform": "translateX(0%)",
