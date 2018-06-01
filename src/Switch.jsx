@@ -85,7 +85,14 @@ export default class Switch extends Component {
   }
 
   render() {
-    const { disable, children, tabIndex, className, ...rest } = this.props;
+    const {
+      disable,
+      children,
+      tabIndex,
+      className,
+      onValueChange,
+      ...rest
+    } = this.props;
 
     const classStyle = classNames(
       "abg-switch",

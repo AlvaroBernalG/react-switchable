@@ -14,7 +14,7 @@ class App extends React.Component {
       <div className="demo">
         <div className="quiz">
           <h1> What is the location of the Eiffel tower</h1>
-          <Switch onChange={country => this.setState({ country })}>
+          <Switch onValueChange={country => this.setState({ country })}>
             <State value="Uk">UK</State>
             <State value="Venezuela">Venezuela</State>
             <State value="Nigeria">Nigeria</State>
@@ -22,7 +22,7 @@ class App extends React.Component {
               France
             </State>
           </Switch>
-          <Switch onChange={city => this.setState({ city })}>
+          <Switch onValueChange={city => this.setState({ city })}>
             <State value="London">London</State>
             <State value="Paris">Paris</State>
             <State value="Lagos">Lagos</State>
