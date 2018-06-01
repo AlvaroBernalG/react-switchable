@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Switch, { State } from "../../src/";
+import Switch, { State } from "../../dist/";
 import "./Example.scss";
+import "../../dist/main.css";
 
 class App extends React.Component {
   state = {

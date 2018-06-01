@@ -21,6 +21,7 @@ version](https://badge.fury.io/js/react-switchable.svg)](https://badge.fury.io/j
 ```jsx
 
 import Switch, { State } from 'react-switchable';
+import './node_modules/react-switchable/dist/main.css'
 
 <Switch onValueChange={newValue => console.log('The new value is => ', newValue)}>
   <State value='Hot'>
@@ -37,6 +38,7 @@ You can have as many state children as you can fit:
 ```jsx
 
 import Switch, { State } from 'react-switchable';
+import './node_modules/react-switchable/dist/main.css'
 
 <div>
   <h1> What is the capital of Venezuela ? </h1>
