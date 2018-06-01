@@ -34,18 +34,18 @@ export interface ReactSwitchProps {
    *
    * **value** describes the value of the state that is being activate.
    *
-   * **newPosition** the index of the item that is being activate.
+   * **newPosition** the index of the state that is being activate.
    *
-   * **id** The ID prop of the switch.
+   * **child** child instance that is being activate.
    *
    * */
-  onValueChange: (value: string, newPosition: number, child: React.CElement) => void;
+  onValueChange: (value: string, newPosition: number, child: React.Element) => void;
 
   /**
    * When true, the switch will no longer be interactive * and the colors will 
    * be greyed out.
    */
-  disabled?: boolean;
+  disable?: boolean;
 
   /**
    * The tab index of the state component.

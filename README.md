@@ -6,10 +6,14 @@
 version](https://badge.fury.io/js/react-switchable.svg)](https://badge.fury.io/js/react-switchable)
 
 
+<p align="center">
+  <img src="https://lab.alvarobg.com/react-switchable/assets/example.gif"/>
+  <br><br>
+  <b> React switchable component, inspired by react-switch. </b>
+  <br><br>
+</p>
 
 ---
-
-React switchable component, inspired by react-switch.
 
 
 ## Usage
@@ -73,7 +77,7 @@ Prop | Type | Required | Default | Description
 Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
 `value`| string | Yes |  "" | Represents the State value.
-`default` | boolean | No | false | Sets the State as active. 
+`default` | boolean | No | false | Sets the State as active in the first render.
 `tabIndex` | number | No | 0 | Sets the [tabindex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 
