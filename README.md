@@ -63,6 +63,17 @@ import 'react-switchable/dist/main.css'
 </div>
 ``` 
 
+## Accessible
+
+Created with accessibility in mind. The following `gif` was made using MacOS
+Sierra `VoiceOver`.
+
+<p align="center">
+  <img src="https://lab.alvarobg.com/react-switchable/assets/accessible_voice_over.gif"/>
+  <br><br>
+  <br><br>
+</p>
+
 
 ## API
 
