@@ -9,7 +9,7 @@ version](https://badge.fury.io/js/react-switchable.svg)](https://badge.fury.io/j
 <p align="center">
   <img src="https://lab.alvarobg.com/react-switchable/assets/example.gif"/>
   <br><br>
-  <b> React switchable component, inspired by react-switch. </b>
+  <b> A customizable and simple to use React switch component, inspired by react-switch. </b>
   <br><br>
 </p>
 
@@ -69,7 +69,7 @@ Created with accessibility in mind. The following `gif` was made using MacOS
 Sierra `VoiceOver`.
 
 <p align="center">
-  <img src="https://lab.alvarobg.com/react-switchable/assets/accessible_voice_over.gif"/>
+  <img src="https://lab.alvarobg.com/react-switchable/assets/accessible.gif"/>
   <br><br>
   <br><br>
 </p>
@@ -85,6 +85,8 @@ Prop | Type | Required | Default | Description
 `disable` | boolean | No | false | Disables the switch. 
 `tabIndex` | number | No | 0 | Sets the [tabIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
+Inherits all other properties assigned from the top.
+
 ### State
 
 Prop | Type | Required | Default | Description
@@ -92,6 +94,8 @@ Prop | Type | Required | Default | Description
 `value`| string | Yes |  "" | Represents the State value.
 `default` | boolean | No | false | Sets the State as active in the first render.
 `tabIndex` | number | No | 0 | Sets the [tabindex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
+
+Inherits all other properties assigned from the top.
 
 
 ## Contributing
