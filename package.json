@@ -3,7 +3,6 @@
   "version": "0.1.5",
   "description": "A customisable react switch component",
   "main": "dist/index.js",
-  "files": ["dist/*.css"],
   "scripts": {
     "prepublish": "rm -rf dist/ && npm run build",
     "build:example": "babel src -d dist",
@@ -17,8 +16,16 @@
       "webpack --config webpack.config.dist.js -p --profile --json > stats.json && webpack-bundle-analyzer stats.json examples/dist -s gzip"
   },
   "pre-commit": ["format", "lint", "test"],
+  "author": {
+    "name": "Alvaro Bernal Gimeno",
+    "website": "htts://alvarobg.com"
+  },
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "https://github.com/AlvaroBernalG/react-switchable"
+  },
+  "bugs": {
+    "url": "https://github.com/gfazioli/react-switch/issues"
   },
   "license": "MIT",
   "peerDependencies": {
