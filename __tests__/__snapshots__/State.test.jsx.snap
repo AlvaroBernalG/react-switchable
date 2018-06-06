@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`it matches the snapshot 1`] = `
+exports[`<State /> matches the snapshot 1`] = `
 <span
   aria-checked={false}
   className="abg-switch__state   "
   role="radio"
   tabIndex={0}
 >
-   Hola 
+   hot 
   <input
     defaultChecked={false}
     type="radio"
-    value="hola"
+    value="hot"
   />
 </span>
 `;

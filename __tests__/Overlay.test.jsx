@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
+import { shallow } from "enzyme";
 import { Overlay } from "../src/";
 
 describe("<Overlay />", () => {
@@ -10,7 +11,7 @@ describe("<Overlay />", () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it("it matches the snapshot", () => {
+  it("matches the snapshot", () => {
     const tree = renderer.create(<Overlay goTo={0} items={2} />).toJSON();
     expect(tree).toMatchSnapshot();
   });

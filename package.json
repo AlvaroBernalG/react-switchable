@@ -80,6 +80,7 @@
     "switchable"
   ],
   "dependencies": {
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "sinon": "^5.1.0"
   }
 }
