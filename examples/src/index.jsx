@@ -19,7 +19,7 @@ class App extends React.Component {
             <State value="Uk">UK</State>
             <State value="Venezuela">Venezuela</State>
             <State value="Nigeria">Nigeria</State>
-            <State default value="France">
+            <State active value="France">
               France
             </State>
           </Switch>
@@ -27,7 +27,7 @@ class App extends React.Component {
             <State value="London">London</State>
             <State value="Paris">Paris</State>
             <State value="Lagos">Lagos</State>
-            <State default value="Caracas">
+            <State active value="Caracas">
               Caracas
             </State>
           </Switch>

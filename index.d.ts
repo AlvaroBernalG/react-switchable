@@ -1,15 +1,13 @@
 import * as React from 'react';
 
 export interface ReactStateProps {
-
   /**
    * Should the state be checked by default ?.
    *
-   * Defaults to false. If the attribute is not specified in any of the State
-   * components the first element from left to right gets activate.
+   * Defaults to false. Activates the state.
    *
    */
-  default?: boolean;
+  active?: boolean;
 
   /**
    * The value/identifier of the State component.
@@ -28,7 +26,6 @@ export interface ReactStateProps {
 }
 
 export interface ReactSwitchProps {
-
   /**
    * Invoked when the user changes the state of the switch.
    *
@@ -39,10 +36,14 @@ export interface ReactSwitchProps {
    * **child** child instance that is being activate.
    *
    * */
-  onValueChange: (value: string, newPosition: number, child: React.Element) => void;
+  onValueChange: (
+    value: string,
+    newPosition: number,
+    child: React.Element
+  ) => void;
 
   /**
-   * When true, the switch will no longer be interactive * and the colors will 
+   * When true, the switch will no longer be interactive * and the colors will
    * be greyed out.
    */
   disable?: boolean;
