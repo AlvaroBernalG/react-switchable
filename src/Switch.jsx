@@ -30,13 +30,6 @@ export default class Switch extends Component {
     activeIndex: this.getDefaultActiveIndex()
   };
 
-  componentWillReceiveProps({ children }) {
-    const activeIndex = children.findIndex(child => child.props.active);
-    if (activeIndex !== this.state.activeIndex) {
-      this.setChecked(activeIndex);
-    }
-  }
-
   onStateClicked(position) {
     if (this.props.disable) return;
     this.setChecked(position);

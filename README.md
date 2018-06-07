@@ -27,7 +27,7 @@ import 'react-switchable/dist/main.css'
   <State value='Hot'>
     Hot
   </State>
-  <State active value='Cold'>
+  <State default value='Cold'>
     Cold
   </State>
 </Switch>
@@ -56,7 +56,7 @@ import 'react-switchable/dist/main.css'
     <State value='Beijing'>
       Beijing
     </State>
-    <State active value='Moscow'>
+    <State defaultactive value='Moscow'>
       Moscow
     </State>
   </Switch>
@@ -92,7 +92,7 @@ Inherits all other properties assigned from the top.
 Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
 `value`| string | Yes |  "" | Represents the State value.
-`active` | boolean | No | false | Activates the State.
+`default` | boolean | No | false | Sets the State as active in the first render.
 `tabIndex` | number | No | 0 | Sets the [tabindex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 Inherits all other properties assigned from the top.

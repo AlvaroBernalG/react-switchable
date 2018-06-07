@@ -7,7 +7,7 @@ import { proxy } from "../src/Switch";
 const SnapShot = () => (
   <Switch>
     <State value="cold">cold</State>
-    <State active value="hot">
+    <State default value="hot">
       hot
     </State>
   </Switch>
@@ -29,7 +29,7 @@ describe("<Switch />", () => {
     const wrapper = mount(
       <Switch onValueChange={onValueChangeHandler}>
         <State value="Hot">Hot</State>
-        <State active value="Cold">
+        <State default value="Cold">
           Cold
         </State>
       </Switch>
@@ -46,7 +46,7 @@ describe("<Switch />", () => {
     const wrapper = mount(
       <Switch onValueChange={onValueChangeHandler}>
         <State value="Hot">Hot</State>
-        <State active value="Cold">
+        <State default value="Cold">
           Cold
         </State>
       </Switch>

@@ -9,16 +9,6 @@ describe("<State />", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should correctly handles active state.", () => {
-    const wrapper = shallow(
-      <State active value="hot">
-        hot
-      </State>
-    );
-    expect(wrapper.text()).toBe("hot");
-    expect(wrapper.hasClass("abg-switch__state--on")).toBe(true);
-  });
-
   it("should correctly handle disable state.", () => {
     const wrapper = shallow(
       <State disable value="hot">
