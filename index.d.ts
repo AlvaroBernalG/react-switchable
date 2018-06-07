@@ -7,7 +7,7 @@ export interface ReactStateProps {
    * Defaults to false. Activates the state.
    *
    */
-  default?: boolean;
+  active?: boolean;
 
   /**
    * The value/identifier of the State component.

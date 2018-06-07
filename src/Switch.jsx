@@ -52,19 +52,23 @@ export default class Switch extends Component {
 
   getDefaultActiveIndex() {
     const pos = this.props.children.findIndex(({ props }) => props.active);
-
     return pos > -1 ? pos : 0;
   }
 
   setChecked(newPosition) {
+    if (this.props.onValueChange) {
+      const child = this.props.children[newPosition];
+      const oldPosition = this.state.activeIndex;
+      this.props.onValueChange(
+        child.props.value,
+        newPosition,
+        oldPosition,
+        child
+      );
+    }
     this.setState({
       activeIndex: newPosition
     });
-
-    if (this.props.onValueChange) {
-      const child = this.props.children[newPosition];
-      this.props.onValueChange(child.props.value, newPosition, child);
-    }
   }
 
   injectChildCapabilities(child, index) {
@@ -75,7 +79,6 @@ export default class Switch extends Component {
       onKeyDown: proxy(this.onStateKeyDown.bind(this, index))(
         child.props.onKeyDown
       ),
-      active: index === this.state.activeIndex,
       tabIndex: this.props.disable ? -1 : child.props.tabIndex,
       disable: this.props.disable
     };

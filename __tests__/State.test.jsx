@@ -18,12 +18,17 @@ describe("<State />", () => {
     expect(wrapper.hasClass("abg-switch__state--disable")).toBe(true);
   });
 
-  it("should correctly render inner text.", () => {
+  it("should correctly handle active state.", () => {
     const wrapper = shallow(
-      <State disable value="hot">
+      <State active value="hot">
         hot
       </State>
     );
+    expect(wrapper.hasClass("abg-switch__state--on")).toBe(true);
+  });
+
+  it("should correctly render inner text.", () => {
+    const wrapper = shallow(<State value="hot">hot</State>);
     expect(wrapper.text()).toBe("hot");
   });
 });

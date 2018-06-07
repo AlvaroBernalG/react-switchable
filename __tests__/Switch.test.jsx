@@ -7,7 +7,7 @@ import { proxy } from "../src/Switch";
 const SnapShot = () => (
   <Switch>
     <State value="cold">cold</State>
-    <State default value="hot">
+    <State active value="hot">
       hot
     </State>
   </Switch>
@@ -29,7 +29,7 @@ describe("<Switch />", () => {
     const wrapper = mount(
       <Switch onValueChange={onValueChangeHandler}>
         <State value="Hot">Hot</State>
-        <State default value="Cold">
+        <State active value="Cold">
           Cold
         </State>
       </Switch>
@@ -41,20 +41,58 @@ describe("<Switch />", () => {
     expect(onValueChangeHandler.calledOnce).toBe(true);
   });
 
-  it("should call an eventHandler whenever state changes.", () => {
+  it("should call an onValueChange() whenever state changes.", () => {
     const onValueChangeHandler = sinon.spy();
     const wrapper = mount(
       <Switch onValueChange={onValueChangeHandler}>
         <State value="Hot">Hot</State>
-        <State default value="Cold">
+        <State active value="Cold">
           Cold
         </State>
       </Switch>
     );
     wrapper
-      .find(".abg-switch__state")
+      .find("State")
       .at(0)
       .simulate("click");
+    expect(onValueChangeHandler.calledOnce).toBe(true);
+  });
+
+  it("should be able to change state with `Arrow` keys.", () => {
+    const onValueChangeHandler = sinon.spy();
+    const wrapper = mount(
+      <Switch onValueChange={onValueChangeHandler}>
+        <State value="Hot">Hot</State>
+        <State active value="Cold">
+          Cold
+        </State>
+      </Switch>
+    );
+    wrapper
+      .find(".abg-switch__container")
+      .at(0)
+      .simulate("keyDown", {
+        key: "ArrowLeft"
+      });
+    expect(onValueChangeHandler.calledOnce).toBe(true);
+  });
+
+  it("should be able to change state with `Enter` key.", () => {
+    const onValueChangeHandler = sinon.spy();
+    const wrapper = mount(
+      <Switch onValueChange={onValueChangeHandler}>
+        <State value="Hot">Hot</State>
+        <State active value="Cold">
+          Cold
+        </State>
+      </Switch>
+    );
+    wrapper
+      .find("State")
+      .at(0)
+      .simulate("keyDown", {
+        key: "Enter"
+      });
     expect(onValueChangeHandler.calledOnce).toBe(true);
   });
 });

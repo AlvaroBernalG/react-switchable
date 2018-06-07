@@ -1,39 +1,60 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Switch, { State } from "../../dist/";
+import Switch, { State } from "../../src/";
 import "./Example.scss";
 import "../../dist/main.css";
 
 class App extends React.Component {
   state = {
-    country: "France",
-    city: "Caracas"
+    activeCountry: 1,
+    countries: [
+      { value: "Russia" },
+      { value: "Nigeria" },
+      { value: "Venezuela" },
+      { value: "France" }
+    ],
+    activeCity: 3,
+    cities: [
+      { value: "London" },
+      { value: "Paris" },
+      { value: "Lagos" },
+      { value: "Caracas" }
+    ]
   };
 
   render() {
+    const { countries, cities, activeCity, activeCountry } = this.state;
     return (
       <div className="demo">
         <div className="quiz">
           <h1> What is the location of the Eiffel tower</h1>
-          <Switch onValueChange={country => this.setState({ country })}>
-            <State value="Uk">UK</State>
-            <State value="Venezuela">Venezuela</State>
-            <State value="Nigeria">Nigeria</State>
-            <State default value="France">
-              France
-            </State>
+          <Switch
+            onValueChange={(_, newPosition) =>
+              this.setState({
+                activeCountry: newPosition
+              })
+            }
+          >
+            {countries.map((country, index) => (
+              <State active={activeCountry === index} value={country.value}>
+                {country.value}
+              </State>
+            ))}
           </Switch>
-          <Switch onValueChange={city => this.setState({ city })}>
-            <State value="London">London</State>
-            <State value="Paris">Paris</State>
-            <State value="Lagos">Lagos</State>
-            <State default value="Caracas">
-              Caracas
-            </State>
+          <Switch
+            onValueChange={(_, newPosition) =>
+              this.setState({ activeCity: newPosition })
+            }
+          >
+            {cities.map((city, index) => (
+              <State active={activeCity === index} value={city.value}>
+                {city.value}
+              </State>
+            ))}
           </Switch>
           <p>
             {`According to you, the Eiffel tower is located in:
-            ${this.state.country}, ${this.state.city}.`}
+            ${countries[activeCountry].value}, ${cities[activeCity].value}.`}
           </p>
         </div>
       </div>
