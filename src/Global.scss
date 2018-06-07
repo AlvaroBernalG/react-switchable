@@ -6,7 +6,7 @@
     *------------------------*
 */
 
-$switch_width: 610px;
+$switch_width: 100%;
 $switch_height: 100%;
 $switch_min_height: 45px;
 $switch_margin: 10px;
@@ -25,8 +25,8 @@ $state_width: 100%;
 $state_height: 100%;
 $state_padding: 15px;
 $state_color: inherit;
-$state_fontFamily: 'Muli';
-$state_letter_spacing: 1.2px;
+$state_fontFamily: inherit;
+$state_letter_spacing: inherit;
 $state_font_weight: bold;
 $state_color_hover: darken(white, 10%);
 $state_background: transparent;
