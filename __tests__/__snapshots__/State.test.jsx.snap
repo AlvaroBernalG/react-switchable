@@ -1,17 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<State /> matches the snapshot 1`] = `
-<span
-  aria-checked={false}
-  className="abg-switch__state   "
-  role="radio"
-  tabIndex={0}
->
-   hot 
-  <input
-    defaultChecked={false}
-    type="radio"
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <State
+    active={false}
+    className=""
+    disable={false}
+    tabIndex={0}
     value="hot"
-  />
-</span>
+  >
+     hot 
+  </State>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": null,
+    "nodeType": "host",
+    "props": Object {
+      "aria-checked": false,
+      "children": Array [
+        " hot ",
+        <input
+          defaultChecked={false}
+          type="radio"
+          value="hot"
+        />,
+      ],
+      "className": "abg-switch__state   ",
+      "role": "radio",
+      "tabIndex": 0,
+    },
+    "ref": null,
+    "rendered": Array [
+      " hot ",
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "defaultChecked": false,
+          "type": "radio",
+          "value": "hot",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+    ],
+    "type": "span",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "aria-checked": false,
+        "children": Array [
+          " hot ",
+          <input
+            defaultChecked={false}
+            type="radio"
+            value="hot"
+          />,
+        ],
+        "className": "abg-switch__state   ",
+        "role": "radio",
+        "tabIndex": 0,
+      },
+      "ref": null,
+      "rendered": Array [
+        " hot ",
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "defaultChecked": false,
+            "type": "radio",
+            "value": "hot",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+      ],
+      "type": "span",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
 `;

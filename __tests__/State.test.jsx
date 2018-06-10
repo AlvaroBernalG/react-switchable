@@ -1,11 +1,10 @@
 import React from "react";
-import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import { State } from "../src/";
 
 describe("<State />", () => {
   it("matches the snapshot", () => {
-    const tree = renderer.create(<State value="hot"> hot </State>).toJSON();
+    const tree = shallow(<State value="hot"> hot </State>);
     expect(tree).toMatchSnapshot();
   });
 
