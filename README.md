@@ -107,7 +107,7 @@ Inherits all other properties assigned from the top.
 
 ## Related
 
-[react-sn-question](https://gitub.com/AlvaroBernalG/react-sn-question)
+[react-sn-question](https://github.com/AlvaroBernalG/react-sn-question)
 
 ## Contributing
 
