@@ -12,3 +12,4 @@ jest.config.js
 jest.setup.js
 coverage
 config
+assets
