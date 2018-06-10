@@ -1,4 +1,4 @@
-# react-switchable
+# [react](https://reactjs.org)-switchable
 
 [![react-switchable](https://travis-ci.org/AlvaroBernalG/react-switchable.svg?branch=master
 )](https://badge.fury.io/js/react-switchable)
@@ -14,6 +14,13 @@ version](https://badge.fury.io/js/react-switchable.svg)](https://badge.fury.io/j
 </p>
 
 ---
+
+
+## Install
+
+```bash
+npm install react-switchable --save
+```
 
 
 ## Usage
@@ -97,6 +104,10 @@ Prop | Type | Required | Default | Description
 
 Inherits all other properties assigned from the top.
 
+
+## Related
+
+[react-sn-question](https://gitub.com/AlvaroBernalG/react-sn-question)
 
 ## Contributing
 
