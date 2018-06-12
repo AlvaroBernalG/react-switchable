@@ -4,12 +4,13 @@
 )](https://badge.fury.io/js/react-switchable)
 [![npm
 version](https://badge.fury.io/js/react-switchable.svg)](https://badge.fury.io/js/react-switchable)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/AlvaroBernalG/react-switchable/blob/master/LICENSE)
 
 
 <p align="center">
   <img src="https://lab.alvarobg.com/react-switchable/assets/example.gif"/>
   <br><br>
-  <b> A customizable and simple to use React switch component, inspired by react-switch. </b>
+  <b> A customizable and simple to use React primitive for building switchable components, inspired by <a href="https://github.com/markusenglund/react-switch"> react-switch</a>. </b>
   <br><br>
 </p>
 
@@ -26,7 +27,6 @@ npm install react-switchable --save
 ## Usage
 
 ```jsx
-
 import Switch, { State } from 'react-switchable';
 import 'react-switchable/dist/main.css'
 
@@ -43,7 +43,6 @@ import 'react-switchable/dist/main.css'
 You can have as many state children as you can fit:
 
 ```jsx
-
 import Switch, { State } from 'react-switchable';
 import 'react-switchable/dist/main.css'
 
@@ -68,8 +67,7 @@ import 'react-switchable/dist/main.css'
     </State>
   </Switch>
 </div>
-``` 
-
+```
 
 ## Accessible
 
@@ -82,8 +80,10 @@ Sierra `VoiceOver`.
   <br><br>
 </p>
 
-[![Try it online](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/k9y5zjv585)
 
+## Live demo
+
+[![Try it online](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/k9y5zjv585)
 
 ## API
 
