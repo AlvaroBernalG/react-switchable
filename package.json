@@ -1,7 +1,7 @@
 {
   "name": "react-switchable",
-  "version": "0.2.3",
-  "description": "A customisable react switch component",
+  "version": "0.2.4",
+  "description": "A react primitive for building switchable components.",
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "rm -rf dist/ && npm run build",
