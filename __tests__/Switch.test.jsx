@@ -24,23 +24,6 @@ describe("<Switch />", () => {
     expect(snap.text()).toBe("coldhot");
   });
 
-  it("should call an eventHandler whenever state changes.", () => {
-    const onValueChangeHandler = sinon.spy();
-    const wrapper = mount(
-      <Switch onValueChange={onValueChangeHandler}>
-        <State value="Hot">Hot</State>
-        <State active value="Cold">
-          Cold
-        </State>
-      </Switch>
-    );
-    wrapper
-      .find("input")
-      .at(0)
-      .simulate("click");
-    expect(onValueChangeHandler.calledOnce).toBe(true);
-  });
-
   it("onValueChange() should be called whenever state changes.", () => {
     const onValueChangeHandler = sinon.spy();
     const wrapper = mount(
@@ -72,7 +55,7 @@ describe("<Switch />", () => {
       .find("State")
       .at(0)
       .simulate("click");
-    expect(onValueChangeHandler.notCalled).toBe(true)
+    expect(onValueChangeHandler.notCalled).toBe(true);
   });
 
   it("should be able to change state with `Arrow` keys.", () => {
