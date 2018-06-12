@@ -70,6 +70,7 @@ import 'react-switchable/dist/main.css'
 </div>
 ``` 
 
+
 ## Accessible
 
 Created with accessibility in mind. The following `gif` was made using MacOS
@@ -80,6 +81,8 @@ Sierra `VoiceOver`.
   <br><br>
   <br><br>
 </p>
+
+[![Try it online](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/k9y5zjv585)
 
 
 ## API
@@ -92,7 +95,7 @@ Prop | Type | Required | Default | Description
 `disable` | boolean | No | false | Disables the switch. 
 `tabIndex` | number | No | 0 | Sets the [tabIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
-Inherits all other properties assigned from the top.
+Inherits all other properties assigned from the parent component
 
 ### State
 
@@ -102,7 +105,7 @@ Prop | Type | Required | Default | Description
 `active` | boolean | No | false | Sets the State as active.
 `tabIndex` | number | No | 0 | Sets the [tabindex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
-Inherits all other properties assigned from the top.
+Inherits all other properties assigned from the parent component.
 
 
 ## Related
