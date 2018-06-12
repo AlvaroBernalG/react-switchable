@@ -3,3 +3,9 @@ node_js:
   - "9"
 before_script:
   - npm run build
+
+jobs:
+  include:
+    - stage: Produce Coverage
+      node_js: node
+      script: npx jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
