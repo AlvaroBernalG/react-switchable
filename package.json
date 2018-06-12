@@ -1,7 +1,7 @@
 {
   "name": "react-switchable",
   "version": "0.2.4",
-  "description": "A react primitive for building switchable components.",
+  "description": "A customizable react switch component",
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "rm -rf dist/ && npm run build",
@@ -18,7 +18,7 @@
   "pre-commit": ["format", "lint", "test"],
   "author": {
     "name": "Alvaro Bernal Gimeno",
-    "website": "htts://alvarobg.com"
+    "website": "https://alvarobg.com"
   },
   "repository": {
     "type": "git",
