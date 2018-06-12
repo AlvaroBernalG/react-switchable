@@ -106,6 +106,7 @@ export default class Switch extends Component {
           onKeyDown={e => this.onSwitchKeyDown(e)}
           className="abg-switch__container"
           role="radiogroup"
+          aria-disabled={disable}
           tabIndex={disable ? -1 : tabIndex}
         >
           {React.Children.map(children, (child, index) =>
