@@ -41,7 +41,7 @@ describe("<Switch />", () => {
     expect(onValueChangeHandler.calledOnce).toBe(true);
   });
 
-  it("should call an onValueChange() whenever state changes.", () => {
+  it("onValueChange() should be called whenever state changes.", () => {
     const onValueChangeHandler = sinon.spy();
     const wrapper = mount(
       <Switch onValueChange={onValueChangeHandler}>
@@ -56,6 +56,23 @@ describe("<Switch />", () => {
       .at(0)
       .simulate("click");
     expect(onValueChangeHandler.calledOnce).toBe(true);
+  });
+
+  it("onValueChange() shouldn't be called when `disable` property is present.", () => {
+    const onValueChangeHandler = sinon.spy();
+    const wrapper = mount(
+      <Switch disable onValueChange={onValueChangeHandler}>
+        <State value="Hot">Hot</State>
+        <State active value="Cold">
+          Cold
+        </State>
+      </Switch>
+    );
+    wrapper
+      .find("State")
+      .at(0)
+      .simulate("click");
+    expect(onValueChangeHandler.notCalled).toBe(true)
   });
 
   it("should be able to change state with `Arrow` keys.", () => {
