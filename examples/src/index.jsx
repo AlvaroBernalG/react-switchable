@@ -6,55 +6,59 @@ import "../../dist/main.css";
 
 class App extends React.Component {
   state = {
-    activeCountry: 1,
-    countries: [
-      { value: "Russia" },
-      { value: "Nigeria" },
-      { value: "Venezuela" },
-      { value: "France" }
-    ],
+    selectedCountry: "Nigeria",
     activeCity: 3,
     cities: [
-      { value: "London" },
-      { value: "Paris" },
-      { value: "Lagos" },
-      { value: "Caracas" }
+      { id: 1, value: "London" },
+      { id: 2, value: "Paris" },
+      { id: 3, value: "Lagos" },
+      { id: 4, value: "Caracas" }
     ]
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        activeCity: 0
+      });
+    }, 1000);
+  }
   render() {
-    const { countries, cities, activeCity, activeCountry } = this.state;
+    const { cities, activeCity, selectedCountry } = this.state;
     return (
       <div className="demo">
         <div className="quiz">
-          <h1> What is the location of the Eiffel tower</h1>
+          <h1>What is the location of the Eiffel tower</h1>
           <Switch
-            onValueChange={(_, newPosition) =>
-              this.setState({
-                activeCountry: newPosition
-              })
+            onValueChange={country =>
+              this.setState({ selectedCountry: country })
             }
           >
-            {countries.map((country, index) => (
-              <State active={activeCountry === index} value={country.value}>
-                {country.value}
-              </State>
-            ))}
+            <State value="Russia">Russia</State>
+            <State default value="Nigeria">
+              Nigeria
+            </State>
+            <State value="Venezuela"> Venezuela </State>
+            <State value="France"> France </State>
           </Switch>
           <Switch
-            onValueChange={(_, newPosition) =>
-              this.setState({ activeCity: newPosition })
+            onSelection={selectedIndex =>
+              this.setState({ activeCity: selectedIndex })
             }
           >
             {cities.map((city, index) => (
-              <State active={activeCity === index} value={city.value}>
+              <State
+                key={city.id}
+                active={activeCity === index}
+                value={city.value}
+              >
                 {city.value}
               </State>
             ))}
           </Switch>
           <p>
             {`According to you, the Eiffel tower is located in:
-            ${countries[activeCountry].value}, ${cities[activeCity].value}.`}
+            ${selectedCountry}, ${cities[activeCity].value}.`}
           </p>
         </div>
       </div>

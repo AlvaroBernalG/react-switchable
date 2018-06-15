@@ -1,5 +1,4 @@
 import React from "react";
-import sinon from "sinon";
 import { mount } from "enzyme";
 import Switch, { State } from "../src/";
 import { proxy } from "../src/Switch";
@@ -24,27 +23,40 @@ describe("<Switch />", () => {
     expect(snap.text()).toBe("coldhot");
   });
 
-  it("onValueChange() should be called whenever state changes.", () => {
-    const onValueChangeHandler = sinon.spy();
+  it("onSelection() should be called whenever a state is selected.", () => {
+    const onSelection = jest.fn();
     const wrapper = mount(
-      <Switch onValueChange={onValueChangeHandler}>
+      <Switch onSelection={onSelection}>
         <State value="Hot">Hot</State>
-        <State active value="Cold">
-          Cold
-        </State>
+        <State value="Cold">Cold</State>
       </Switch>
     );
     wrapper
       .find("State")
-      .at(0)
+      .at(1)
       .simulate("click");
-    expect(onValueChangeHandler.calledOnce).toBe(true);
+    expect(onSelection.mock.calls.length).toBe(1);
+  });
+
+  it("onValueChange() should be called whenever state changes.", () => {
+    const onValueChangeHandler = jest.fn();
+    const wrapper = mount(
+      <Switch onValueChange={onValueChangeHandler}>
+        <State value="Hot">Hot</State>
+        <State value="Cold">Cold</State>
+      </Switch>
+    );
+    wrapper
+      .find("State")
+      .at(1)
+      .simulate("click");
+    expect(onValueChangeHandler.mock.calls.length).toBe(1);
   });
 
   it("onValueChange() shouldn't be called when `disable` property is present.", () => {
-    const onValueChangeHandler = sinon.spy();
+    const onValueChangeHandler = jest.fn();
     const wrapper = mount(
-      <Switch disable onValueChange={onValueChangeHandler}>
+      <Switch disable onSelection={onValueChangeHandler}>
         <State value="Hot">Hot</State>
         <State active value="Cold">
           Cold
@@ -55,15 +67,14 @@ describe("<Switch />", () => {
       .find("State")
       .at(0)
       .simulate("click");
-    expect(onValueChangeHandler.notCalled).toBe(true);
+    expect(onValueChangeHandler.mock.calls.length).toBe(0);
   });
 
   it("should be able to change state with `Arrow` keys.", () => {
-    const onValueChangeHandler = sinon.spy();
     const wrapper = mount(
-      <Switch onValueChange={onValueChangeHandler}>
+      <Switch>
         <State value="Hot">Hot</State>
-        <State active value="Cold">
+        <State default value="Cold">
           Cold
         </State>
       </Switch>
@@ -74,15 +85,15 @@ describe("<Switch />", () => {
       .simulate("keyDown", {
         key: "ArrowLeft"
       });
-    expect(onValueChangeHandler.calledOnce).toBe(true);
+
+    expect(wrapper.state().activeIndex).toBe(0);
   });
 
   it("should be able to change state with `Enter` key.", () => {
-    const onValueChangeHandler = sinon.spy();
     const wrapper = mount(
-      <Switch onValueChange={onValueChangeHandler}>
+      <Switch>
         <State value="Hot">Hot</State>
-        <State active value="Cold">
+        <State default value="Cold">
           Cold
         </State>
       </Switch>
@@ -93,7 +104,39 @@ describe("<Switch />", () => {
       .simulate("keyDown", {
         key: "Enter"
       });
-    expect(onValueChangeHandler.calledOnce).toBe(true);
+    expect(wrapper.state().activeIndex).toBe(0);
+  });
+
+  it("should not allow to change the state if `active` property is present.", () => {
+    const wrapper = mount(
+      <Switch>
+        <State value="Hot">Hot</State>
+        <State active value="Cold">
+          Cold
+        </State>
+      </Switch>
+    );
+    wrapper
+      .find("State")
+      .at(0)
+      .simulate("click");
+
+    expect(wrapper.state().activeIndex).toBe(1);
+  });
+
+  it("should throw error if both `active` and `default` are present in any <State />", () => {
+    expect(() =>
+      mount(
+        <Switch>
+          <State active value="Hot">
+            Hot
+          </State>
+          <State default value="Cold">
+            Cold
+          </State>
+        </Switch>
+      )
+    ).toThrowError();
   });
 });
 

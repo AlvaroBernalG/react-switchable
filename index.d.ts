@@ -43,6 +43,14 @@ export interface ReactSwitchProps {
   ) => void;
 
   /**
+   * Invoked whenever a state is selected (Clicked, touched or used the 'Enter' keyboard)
+   *
+   * **index** The index of the selected state.
+   *
+   * */
+  onSelection: (index: number) => void;
+
+  /**
    * When true, the switch will no longer be interactive * and the colors will
    * be greyed out.
    */

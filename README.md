@@ -34,7 +34,7 @@ import 'react-switchable/dist/main.css'
   <State value='Hot'>
     Hot
   </State>
-  <State active value='Cold'>
+  <State value='Cold'>
     Cold
   </State>
 </Switch>
@@ -47,7 +47,7 @@ import Switch, { State } from 'react-switchable';
 import 'react-switchable/dist/main.css'
 
 <div>
-  <h1> What is the capital of Venezuela ? </h1>
+  <h1>What is the capital of Venezuela ?</h1>
   <Switch 
     onValueChange={capital => checkAnswer(capital)}>
     <State value='London'>
@@ -62,11 +62,76 @@ import 'react-switchable/dist/main.css'
     <State value='Beijing'>
       Beijing
     </State>
-    <State active value='Moscow'>
+    <State value='Moscow'>
       Moscow
     </State>
   </Switch>
 </div>
+```
+
+## State
+
+By default the switchable component manages wich <State /> is active internally. You can change that by setting the `active` attribute in any `<State />` component.
+
+Data flow from parent to child :  
+
+```js
+class App extends React.Commponent {
+  state = {
+    activeCountry: 1,
+    countries: [
+      { value: "Russia" },
+      { value: "Nigeria" },
+      { value: "Venezuela" },
+      { value: "France" }
+    ]
+  }
+
+  render() {
+    return (
+      <Switch 
+        onSelection={(selectedIndex) => {
+          this.setState({
+            activeCountry: selectedIndex
+          })
+        }}
+      >
+        {countries.map((country, index) => (
+          <State key={index} active={index === activeCountry} value={country.value}>
+            {country.value}
+          </State>
+        ))}
+      </Switch>
+    )
+  }
+}
+```
+
+Data flow from child to parent:
+
+```js
+class App extends React.Commponent {
+  state = {
+    selectedCountry: "Nigeria"
+  }
+
+  render() {
+    return (
+      <Switch
+        onValueChange={country =>
+          this.setState({ selectedCountry: country })
+        }
+      >
+        <State value="Russia">Russia</State>
+        <State default value="Nigeria">
+          Nigeria
+        </State>
+        <State value="Venezuela"> Venezuela </State>
+        <State value="France"> France </State>
+      </Switch>
+    )
+  }
+}
 ```
 
 ## Accessible
@@ -91,8 +156,9 @@ Sierra `VoiceOver`.
 
 Prop | Type | Required | Default | Description 
 -----|------|----------|---------|-------------
-`onValueChange`| function | No |  "" | Fires when the switch changes the state.
-`disable` | boolean | No | false | Disables the switch. 
+`onValueChange`| function | No |  "" | Fires whenever the switch changes inner state.
+`onSelection`| function | No |  "" | Fires whenever a state is selected.
+`disable` | boolean | No | false | Disables the switch.
 `tabIndex` | number | No | 0 | Sets the [tabIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 Inherits all other properties assigned from the parent component
