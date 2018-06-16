@@ -69,9 +69,9 @@ import 'react-switchable/dist/main.css'
 </div>
 ```
 
-## State
+## Data flow
 
-By default the switchable component manages wich <State /> is active internally. You can change that by setting the `active` attribute in any `<State />` component.
+By default the switchable component manages which `<State />` is active internally. You can change that by setting the `active` attribute in any `<State />` component.
 
 Data flow from parent to child :  
 
