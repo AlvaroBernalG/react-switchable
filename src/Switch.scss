@@ -4,6 +4,7 @@
   min-height: $switch_min_height;
   box-sizing: border-box;
   margin: $switch_margin;
+  outline: none;
 }
 
 .abg-switch__container {
@@ -16,6 +17,7 @@
   border: 1px solid $switch_border_color;
   border-radius: $switch_border_radius;
   z-index: 1;
+  outline: none;
 }
 
 .abg-switch--disable {}
