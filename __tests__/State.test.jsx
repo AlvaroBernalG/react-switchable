@@ -1,10 +1,15 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { State } from "../src/";
+import { State, Item } from "../src/";
 
 describe("<State />", () => {
   it("matches the snapshot", () => {
     const tree = shallow(<State value="hot"> hot </State>);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("[Item] matches the snapshot", () => {
+    const tree = shallow(<Item value="hot"> hot </Item>);
     expect(tree).toMatchSnapshot();
   });
 

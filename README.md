@@ -27,53 +27,53 @@ npm install react-switchable --save
 ## Usage
 
 ```jsx
-import Switch, { State } from 'react-switchable';
+import Switch, { Item } from 'react-switchable';
 import 'react-switchable/dist/main.css'
 
 <Switch onValueChange={newValue => console.log('The new value is => ', newValue)}>
-  <State value='Hot'>
+  <Item value='Hot'>
     Hot
-  </State>
-  <State value='Cold'>
+  </Item>
+  <Item value='Cold'>
     Cold
-  </State>
+  </Item>
 </Switch>
-``` 
+```
 
-You can have as many state children as you can fit:
+You can have as many Item children as you can fit:
 
 ```jsx
-import Switch, { State } from 'react-switchable';
+import Switch, { Item } from 'react-switchable';
 import 'react-switchable/dist/main.css'
 
 <div>
   <h1>What is the capital of Venezuela ?</h1>
-  <Switch 
+  <Switch
     onValueChange={capital => checkAnswer(capital)}>
-    <State value='London'>
+    <Item value='London'>
       London
-    </State>
-    <State value='Caracas'>
+    </Item>
+    <Item value='Caracas'>
       Caracas
-    </State>
-    <State value='Lagos'>
+    </Item>
+    <Item value='Lagos'>
       Lagos
-    </State>
-    <State value='Beijing'>
+    </Item>
+    <Item value='Beijing'>
       Beijing
-    </State>
-    <State value='Moscow'>
+    </Item>
+    <Item value='Moscow'>
       Moscow
-    </State>
+    </Item>
   </Switch>
 </div>
 ```
 
 ## Data flow
 
-By default the switchable component manages which `<State />` is active internally. You can change that by setting the `active` attribute in any `<State />` component.
+By default the switchable component manages which `<Item />` is active internally. You can change that by setting the `active` attribute in any `<Item />` component.
 
-Data flow from parent to child :  
+Data flow from parent to child :
 
 ```js
 class App extends React.Commponent {
@@ -89,7 +89,7 @@ class App extends React.Commponent {
 
   render() {
     return (
-      <Switch 
+      <Switch
         onSelection={(selectedIndex) => {
           this.setState({
             activeCountry: selectedIndex
@@ -97,9 +97,9 @@ class App extends React.Commponent {
         }}
       >
         {countries.map((country, index) => (
-          <State key={index} active={index === activeCountry} value={country.value}>
+          <Item key={index} active={index === activeCountry} value={country.value}>
             {country.value}
-          </State>
+          </Item>
         ))}
       </Switch>
     )
@@ -122,12 +122,12 @@ class App extends React.Commponent {
           this.setState({ selectedCountry: country })
         }
       >
-        <State value="Russia">Russia</State>
-        <State default value="Nigeria">
+        <Item value="Russia">Russia</Item>
+        <Item default value="Nigeria">
           Nigeria
-        </State>
-        <State value="Venezuela"> Venezuela </State>
-        <State value="France"> France </State>
+        </Item>
+        <Item value="Venezuela"> Venezuela </Item>
+        <Item value="France"> France </Item>
       </Switch>
     )
   }
@@ -154,7 +154,7 @@ Sierra `VoiceOver`.
 
 ### Switch
 
-Prop | Type | Required | Default | Description 
+Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
 `onValueChange`| function | No |  "" | Fires whenever the switch changes inner state.
 `onSelection`| function | No |  "" | Fires whenever a state is selected.
@@ -163,7 +163,7 @@ Prop | Type | Required | Default | Description
 
 Inherits all other properties assigned from the parent component
 
-### State
+### State | Item
 
 Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
