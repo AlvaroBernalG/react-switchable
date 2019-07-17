@@ -36,9 +36,13 @@ class App extends React.Component {
               this.setState({ selectedCountry: country })
             }
           >
-            <Item disable value="United Kingdom">United Kingdom</Item>
+            <Item disable value="United Kingdom">
+              United Kingdom
+            </Item>
             <Item value="Nigeria">Nigeria</Item>
-            <Item default value="Venezuela">Venezuela</Item>
+            <Item default value="Venezuela">
+              Venezuela
+            </Item>
             <Item disable value="France">
               France
             </Item>
