@@ -12,7 +12,7 @@ class App extends React.Component {
       { id: 1, value: "London" },
       { id: 2, value: "Paris" },
       { id: 3, value: "Lagos" },
-      { id: 4, value: "Caracas" }
+      { id: 4, value: "Caracas", disable: true }
     ]
   };
 
@@ -36,30 +36,27 @@ class App extends React.Component {
               this.setState({ selectedCountry: country })
             }
           >
-            <Item disable value="Russia">
-              Russia
-            </Item>
+            <Item disable value="United Kingdom">United Kingdom</Item>
             <Item value="Nigeria">Nigeria</Item>
-            <Item default value="Venezuela">
-              {" "}
-              Venezuela{" "}
+            <Item default value="Venezuela">Venezuela</Item>
+            <Item disable value="France">
+              France
             </Item>
-            <Item value="France"> France </Item>
           </Switch>
           <Switch>
-            <Item disable active={this.state.activeCity === 0} value="0">
-              Russia-0
-            </Item>
-            <Item active={this.state.activeCity === 1} value="1">
-              Nigeria-1
-            </Item>
-            <Item disable active={this.state.activeCity === 2} value="2">
-              Nigeria-2
-            </Item>
+            {this.state.cities.map((city, i) => (
+              <Item
+                disable={city.disable}
+                active={this.state.activeCity === i}
+                value={city.value}
+              >
+                {city.value}
+              </Item>
+            ))}
           </Switch>
           <p>
-            {`According to you, the Eiffel tower is located in:
-            ${selectedCountry}, ${cities[activeCity].value}.`}
+            {`The Eiffel tower is located in:
+            ${cities[activeCity].value}, ${selectedCountry}.`}
           </p>
         </div>
       </div>
