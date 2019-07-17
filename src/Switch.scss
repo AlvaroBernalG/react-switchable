@@ -20,5 +20,7 @@
   outline: none;
 }
 
-.abg-switch--disable {}
+.abg-switch--disable {
+  opacity: $switch_disable_opacity;
+}
 

@@ -23,11 +23,13 @@
   }
 }
 
-.abg-switch__item--on {
+.abg-switch__item.abg-switch__item--on {
   z-index: 2;
   color: $item_color_onActive;
   font-weight: bold;
   outline: none;
 }
 
-.abg-switch__item--disable {}
+.abg-switch__item.abg-switch__item--disable {
+  opacity: $item_disable_opacity;
+}
