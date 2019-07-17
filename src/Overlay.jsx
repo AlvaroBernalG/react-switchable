@@ -7,12 +7,12 @@ const Overlay = props => {
   const classes = [className, "abg-switch__overlay"].join(" ");
   return (
     <span
-      {...rest}
       className={classes}
       style={{
         width: `${100 / items}%`,
         transform: `translateX(${100 * goTo}%)`
       }}
+      {...rest}
     />
   );
 };
