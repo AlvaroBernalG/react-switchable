@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Switch, { State } from "../../src/";
+import Switch, { Item } from "../../src/";
 import "./Example.scss";
 import "../../dist/main.css";
 
 class App extends React.Component {
   state = {
     selectedCountry: "Nigeria",
-    activeCity: 3,
+    activeCity: 0,
     cities: [
       { id: 1, value: "London" },
       { id: 2, value: "Paris" },
@@ -17,12 +17,14 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    setTimeout(() => {
+    setInterval(() => {
       this.setState({
-        activeCity: 0
+        activeCity:
+          this.state.activeCity + 1 >= 3 ? 0 : this.state.activeCity + 1
       });
     }, 1000);
   }
+
   render() {
     const { cities, activeCity, selectedCountry } = this.state;
     return (
@@ -34,27 +36,26 @@ class App extends React.Component {
               this.setState({ selectedCountry: country })
             }
           >
-            <State value="Russia">Russia</State>
-            <State default value="Nigeria">
-              Nigeria
-            </State>
-            <State value="Venezuela"> Venezuela </State>
-            <State value="France"> France </State>
+            <Item disable value="Russia">
+              Russia
+            </Item>
+            <Item value="Nigeria">Nigeria</Item>
+            <Item default value="Venezuela">
+              {" "}
+              Venezuela{" "}
+            </Item>
+            <Item value="France"> France </Item>
           </Switch>
-          <Switch
-            onSelection={selectedIndex =>
-              this.setState({ activeCity: selectedIndex })
-            }
-          >
-            {cities.map((city, index) => (
-              <State
-                key={city.id}
-                active={activeCity === index}
-                value={city.value}
-              >
-                {city.value}
-              </State>
-            ))}
+          <Switch>
+            <Item disable active={this.state.activeCity === 0} value="0">
+              Russia-0
+            </Item>
+            <Item active={this.state.activeCity === 1} value="1">
+              Nigeria-1
+            </Item>
+            <Item disable active={this.state.activeCity === 2} value="2">
+              Nigeria-2
+            </Item>
           </Switch>
           <p>
             {`According to you, the Eiffel tower is located in:
