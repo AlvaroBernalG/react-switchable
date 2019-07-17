@@ -2,6 +2,7 @@
 body,
 html {
   height: 100%;
+  background: rgb(40, 42, 54);
 }
 
 .demo {
@@ -17,20 +18,24 @@ html {
   color: white;
 }
 
-.quiz {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 20px;
+h1 {
+  line-height: inherit;
+  margin-top: -10px;
+  padding-bottom: 18px;
 }
 
 .quiz {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  box-sizing: border-box;
+
   width: 710px;
   height: 365px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background-image: linear-gradient(to bottom, rgba(250, 145, 97, 0.7), rgba(247, 59, 28, 0.69));
-  box-shadow: 0 2px 12px 6px rgba(167, 196, 220, 0.5);
+  background-image: linear-gradient(to bottom, rgba(247, 123, 64, 0.99), rgba(247, 59, 28, 0.69));
+  box-shadow: 0 2px 12px 12px rgb(35, 36, 53);
 }
