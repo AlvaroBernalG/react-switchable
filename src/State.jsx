@@ -13,6 +13,8 @@ const State = props => {
 
   return (
     <span
+      tabIndex={tabIndex}
+      className={classes}
       {...rest}
       role="radio"
       aria-checked={active}
