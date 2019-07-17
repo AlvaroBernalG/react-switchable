@@ -169,6 +169,7 @@ Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
 `value`| string | Yes |  "" | Represents the Item value.
 `active` | boolean | No | false | Sets the Item as active.
+`disable` | boolean | No | false | Disables the Item.
 `tabIndex` | number | No | 0 | Sets the [tabindex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 Inherits all other properties assigned from the parent component.

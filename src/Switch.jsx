@@ -87,8 +87,10 @@ export default class Switch extends Component {
   }
 
   onSelection(position) {
-    // if disabled then don't do anything.;
+    // if <Switch /> has disable props then don't do anything.;
     if (this.props.disable) return;
+    // if <Item /> has disable props don't allow to be active;
+    if (this.props.children[position].props.disable) return;
     // execute callback if it was defined;
     if (this.props.onSelection) this.props.onSelection(position);
     // if the active state is not managed by switch then return
@@ -127,7 +129,6 @@ export default class Switch extends Component {
         child.props.onKeyDown
       ),
       tabIndex: this.props.disable ? -1 : child.props.tabIndex,
-      disable: this.props.disable,
       active: this.state.activeIndex === index
     };
   }
