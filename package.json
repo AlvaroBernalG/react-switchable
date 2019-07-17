@@ -6,14 +6,14 @@
   "scripts": {
     "prepublish": "rm -rf dist/ && npm run build",
     "build:example": "babel src -d dist",
-    "build": "webpack --config './webpack.config.dist.js'",
+    "build": "env ENV=PROD webpack ",
     "examples:dev": "webpack-dev-server --mode development",
     "format": "prettier --write '**/*.{js,jsx,json}'",
     "lint": "eslint --ext .js,.jsx src/ examples/src",
     "test": "jest",
     "test:watch": "jest --watch",
     "analyze-bundle":
-      "webpack --config webpack.config.dist.js -p --profile --json > stats.json && webpack-bundle-analyzer stats.json examples/dist -s gzip"
+      "env ENV=PROD webpack -p --profile --json > stats.json && webpack-bundle-analyzer stats.json examples/dist -s gzip"
   },
   "pre-commit": ["format", "lint", "test"],
   "author": {
