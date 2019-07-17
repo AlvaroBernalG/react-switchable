@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./State.scss";
+import "./Item.scss";
 
-const State = props => {
+const Item = props => {
   const { active, tabIndex, className, disable, value, ...rest } = props;
+
   const classes = [
-    "abg-switch__state",
+    "abg-switch__item",
     className,
-    active ? "abg-switch__state--on" : "",
-    disable ? "abg-switch__state--disable" : ""
+    active ? "abg-switch__item--on" : "",
+    disable ? "abg-switch__item--disable" : ""
   ].join(" ");
 
   return (
@@ -18,8 +19,6 @@ const State = props => {
       {...rest}
       role="radio"
       aria-checked={active}
-      tabIndex={tabIndex}
-      className={classes}
     >
       {props.children}
       <input type="radio" value={value} defaultChecked={active} />
@@ -27,7 +26,7 @@ const State = props => {
   );
 };
 
-State.propTypes = {
+Item.propTypes = {
   value: PropTypes.string.isRequired,
   children: PropTypes.node,
   disable: PropTypes.bool,
@@ -36,7 +35,7 @@ State.propTypes = {
   className: PropTypes.string
 };
 
-State.defaultProps = {
+Item.defaultProps = {
   children: "",
   active: false,
   disable: false,
@@ -44,4 +43,4 @@ State.defaultProps = {
   className: ""
 };
 
-export default State;
+export default Item;

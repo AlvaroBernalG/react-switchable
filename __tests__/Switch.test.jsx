@@ -1,53 +1,53 @@
 import React from "react";
 import { mount } from "enzyme";
-import Switch, { State } from "../src/";
+import Switch, { Item } from "../src/";
 import { proxy } from "../src/Switch";
 
 const SnapShot = () => (
   <Switch>
-    <State value="cold">cold</State>
-    <State active value="hot">
+    <Item value="cold">cold</Item>
+    <Item active value="hot">
       hot
-    </State>
+    </Item>
   </Switch>
 );
 
 describe("<Switch />", () => {
-  it("should mount state children.", () => {
-    const children = mount(<SnapShot />).find("State");
+  it("should mount Item children.", () => {
+    const children = mount(<SnapShot />).find("Item");
     expect(children.length).toBe(2);
   });
 
-  it("should correctly render state text.", () => {
+  it("should correctly render Item text.", () => {
     const snap = mount(<SnapShot />);
     expect(snap.text()).toBe("coldhot");
   });
 
-  it("onSelection() should be called whenever a state is selected.", () => {
+  it("onSelection() should be called whenever a Item is selected.", () => {
     const onSelection = jest.fn();
     const wrapper = mount(
       <Switch onSelection={onSelection}>
-        <State value="Hot">Hot</State>
-        <State value="Cold">Cold</State>
+        <Item value="Hot">Hot</Item>
+        <Item value="Cold">Cold</Item>
       </Switch>
     );
     wrapper
-      .find("State")
+      .find("Item")
       .at(1)
       .simulate("click");
     expect(onSelection.mock.calls.length).toBe(1);
   });
 
-  it("onValueChange() should be called whenever state changes.", () => {
+  it("onValueChange() should be called whenever Item changes.", () => {
     const onValueChangeHandler = jest.fn();
     const wrapper = mount(
       <Switch onValueChange={onValueChangeHandler}>
-        <State value="Hot">Hot</State>
-        <State value="Cold">Cold</State>
+        <Item value="Hot">Hot</Item>
+        <Item value="Cold">Cold</Item>
       </Switch>
     );
     wrapper
-      .find("State")
+      .find("Item")
       .at(1)
       .simulate("click");
     expect(onValueChangeHandler.mock.calls.length).toBe(1);
@@ -57,26 +57,26 @@ describe("<Switch />", () => {
     const onValueChangeHandler = jest.fn();
     const wrapper = mount(
       <Switch disable onSelection={onValueChangeHandler}>
-        <State value="Hot">Hot</State>
-        <State active value="Cold">
+        <Item value="Hot">Hot</Item>
+        <Item active value="Cold">
           Cold
-        </State>
+        </Item>
       </Switch>
     );
     wrapper
-      .find("State")
+      .find("Item")
       .at(0)
       .simulate("click");
     expect(onValueChangeHandler.mock.calls.length).toBe(0);
   });
 
-  it("should be able to change state with `Arrow` keys.", () => {
+  it("should be able to change Item with `Arrow` keys.", () => {
     const wrapper = mount(
       <Switch>
-        <State value="Hot">Hot</State>
-        <State default value="Cold">
+        <Item value="Hot">Hot</Item>
+        <Item default value="Cold">
           Cold
-        </State>
+        </Item>
       </Switch>
     );
     wrapper
@@ -89,17 +89,17 @@ describe("<Switch />", () => {
     expect(wrapper.state().activeIndex).toBe(0);
   });
 
-  it("should be able to change state with `Enter` key.", () => {
+  it("should be able to change Item with `Enter` key.", () => {
     const wrapper = mount(
       <Switch>
-        <State value="Hot">Hot</State>
-        <State default value="Cold">
+        <Item value="Hot">Hot</Item>
+        <Item default value="Cold">
           Cold
-        </State>
+        </Item>
       </Switch>
     );
     wrapper
-      .find("State")
+      .find("Item")
       .at(0)
       .simulate("keyDown", {
         key: "Enter"
@@ -110,30 +110,30 @@ describe("<Switch />", () => {
   it("should not allow to change the state if `active` property is present.", () => {
     const wrapper = mount(
       <Switch>
-        <State value="Hot">Hot</State>
-        <State active value="Cold">
+        <Item value="Hot">Hot</Item>
+        <Item active value="Cold">
           Cold
-        </State>
+        </Item>
       </Switch>
     );
     wrapper
-      .find("State")
+      .find("Item")
       .at(0)
       .simulate("click");
 
     expect(wrapper.state().activeIndex).toBe(1);
   });
 
-  it("should throw error if both `active` and `default` are present in any <State />", () => {
+  it("should throw error if both `active` and `default` are present in any <Item />", () => {
     expect(() =>
       mount(
         <Switch>
-          <State active value="Hot">
+          <Item active value="Hot">
             Hot
-          </State>
-          <State default value="Cold">
+          </Item>
+          <Item default value="Cold">
             Cold
-          </State>
+          </Item>
         </Switch>
       )
     ).toThrowError();

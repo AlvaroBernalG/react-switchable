@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<State /> [Item] matches the snapshot 1`] = `ShallowWrapper {}`;
-
-exports[`<State /> matches the snapshot 1`] = `ShallowWrapper {}`;

@@ -13,7 +13,7 @@ $switch_margin: 10px;
 $switch_border_radius: 100px;
 $switch_border_color: white;
 
-/*  State -> Every Item inside the container 
+/*  Item -> Every Item inside the container 
 
     *------*-----------------*
     | Item |                 |
@@ -21,18 +21,18 @@ $switch_border_color: white;
     *------*-----------------*
 */
 
-$state_width: 100%;
-$state_height: 100%;
-$state_padding: 15px;
-$state_color: inherit;
-$state_fontFamily: inherit;
-$state_letter_spacing: inherit;
-$state_font_weight: bold;
-$state_color_hover: darken(white, 10%);
-$state_background: transparent;
+$item_width: 100%;
+$item_height: 100%;
+$item_padding: 15px;
+$item_color: inherit;
+$item_fontFamily: inherit;
+$item_letter_spacing: inherit;
+$item_font_weight: bold;
+$item_color_hover: darken(white, 10%);
+$item_background: transparent;
 
 // On Active:
-$state_color_onActive: #e66549;
+$item_color_onActive: #e66549;
 
 /*   Overlay -> The layer that covers every item when item is active.
 

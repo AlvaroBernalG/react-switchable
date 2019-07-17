@@ -1,0 +1,33 @@
+@import 'Global';
+.abg-switch__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: $item_letter_spacing;
+  cursor: pointer;
+  width: $item_width;
+  height: $item_height;
+  padding: $item_padding;
+  font-weight: $item_font_weight;
+  background: $item_background;
+  overflow: visible;
+  color: inherit;
+  font: inherit;
+  border: none;
+  outline: none;
+  &:not(.switch__item--disable):hover {
+    color: $item_color_hover;
+  }
+  input {
+    display: none;
+  }
+}
+
+.abg-switch__item--on {
+  z-index: 2;
+  color: $item_color_onActive;
+  font-weight: bold;
+  outline: none;
+}
+
+.abg-switch__item--disable {}
