@@ -90,7 +90,7 @@ class App extends React.Commponent {
   render() {
     return (
       <Switch
-        onSelection={(selectedIndex) => {
+        onItemSelected={(selectedIndex) => {
           this.setState({
             activeCountry: selectedIndex
           })
@@ -118,10 +118,7 @@ class App extends React.Commponent {
   render() {
     return (
       <Switch
-        onValueChange={country =>
-          this.setState({ selectedCountry: country })
-        }
-      >
+        onItemChanged={country =>this.setState({ selectedCountry: country })}>
         <Item value="Russia">Russia</Item>
         <Item default value="Nigeria">
           Nigeria
@@ -157,7 +154,7 @@ Sierra `VoiceOver`.
 Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
 `onValueChange`| function | No |  "" | Fires whenever the switch changes inner state.
-`onSelection`| function | No |  "" | Fires whenever a state is selected.
+`onItemSelected`| function | No |  "" | Fires whenever an Item is selected.
 `disable` | boolean | No | false | Disables the switch.
 `arrowNavigation` | boolean | No | true | Enables the navigation with the arrow keys.
 `tabIndex` | number | No | 0 | Sets the [tabIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).

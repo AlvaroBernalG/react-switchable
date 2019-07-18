@@ -14,6 +14,7 @@ export default class Switch extends Component {
     children: PropTypes.arrayOf(PropTypes.instanceOf(Item)).isRequired,
     onValueChange: PropTypes.func,
     onSelection: PropTypes.func,
+    onItemSelected: PropTypes.func,
     tabIndex: PropTypes.number,
     disable: PropTypes.bool,
     arrowNavigation: PropTypes.bool,
@@ -23,6 +24,7 @@ export default class Switch extends Component {
   static defaultProps = {
     onValueChange: undefined,
     onSelection: undefined,
+    onItemSelected: undefined,
     tabIndex: 0,
     disable: false,
     arrowNavigation: true,
@@ -93,7 +95,9 @@ export default class Switch extends Component {
     // if <Item /> has disable props don't allow to be active;
     if (this.props.children[position].props.disable) return;
     // execute callback if it was defined;
-    if (this.props.onSelection) this.props.onSelection(position);
+    if (this.props.onSelection) this.props.onSelection(position); // deprecated
+    // execute callback if it was defined;
+    if (this.props.onItemSelected) this.props.onItemSelected(position);
     // if the active state is not managed by switch then return
     if (this.state.autoControlled === false) return;
     // update inner state with the new selected position.

@@ -23,10 +23,25 @@ describe("<Switch />", () => {
     expect(snap.text()).toBe("coldhot");
   });
 
-  it("onSelection() should be called whenever a Item is selected.", () => {
+  it("[Deprecated] onSelection() should be called whenever a Item is selected.", () => {
     const onSelection = jest.fn();
     const wrapper = mount(
       <Switch onSelection={onSelection}>
+        <Item value="Hot">Hot</Item>
+        <Item value="Cold">Cold</Item>
+      </Switch>
+    );
+    wrapper
+      .find("Item")
+      .at(1)
+      .simulate("click");
+    expect(onSelection.mock.calls.length).toBe(1);
+  });
+
+  it("onItemSelected() should be called whenever a Item is selected.", () => {
+    const onSelection = jest.fn();
+    const wrapper = mount(
+      <Switch onItemSelected={onSelection}>
         <Item value="Hot">Hot</Item>
         <Item value="Cold">Cold</Item>
       </Switch>
