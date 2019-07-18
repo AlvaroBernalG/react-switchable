@@ -33,6 +33,7 @@ class Item extends React.Component {
         className={classes}
         {...rest}
         role="radio"
+        tabIndex={disable ? -1 : 0}
         aria-checked={active}
         aria-disabled={disable}
       >
