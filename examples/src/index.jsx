@@ -7,51 +7,58 @@ import "../../dist/main.css";
 class App extends React.Component {
   state = {
     selectedCountry: "Nigeria",
-    activeCity: 0,
+    selectedCity: 0,
     cities: [
       { id: 1, value: "London" },
       { id: 2, value: "Paris" },
       { id: 3, value: "Lagos" },
-      { id: 4, value: "Caracas", disable: true }
+      { id: 4, value: "Caracas", disable: false }
     ]
   };
 
   componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        activeCity:
-          this.state.activeCity + 1 >= 3 ? 0 : this.state.activeCity + 1
-      });
-    }, 1000);
+    // setInterval(() => {
+    //   this.setState({
+    //     selectedCity:
+    //       this.state.selectedCity + 1 >= 3 ? 0 : this.state.selectedCity + 1
+    //   });
+    // }, 1000);
   }
 
   render() {
-    const { cities, activeCity, selectedCountry } = this.state;
+    const { cities, selectedCity, selectedCountry } = this.state;
     return (
       <div className="demo">
         <div className="quiz">
-          <h1>What is the location of the Eiffel tower</h1>
+          <h1>Where is the Eiffel tower?</h1>
           <Switch
+            arrowSelection={false}
             onValueChange={country =>
               this.setState({ selectedCountry: country })
             }
           >
-            <Item disable value="United Kingdom">
-              United Kingdom
+            <Item value="United Kingdom">United Kingdom</Item>
+            <Item disable value="Nigeria">
+              Nigeria
             </Item>
-            <Item value="Nigeria">Nigeria</Item>
             <Item default value="Venezuela">
               Venezuela
             </Item>
-            <Item disable value="France">
-              France
-            </Item>
+            <Item value="France">France</Item>
           </Switch>
-          <Switch>
+          <Switch
+            onItemSelected={index => {
+              this.setState({
+                ...this.state,
+                selectedCity: index
+              });
+            }}
+          >
             {this.state.cities.map((city, i) => (
               <Item
+                key={city.value}
                 disable={city.disable}
-                active={this.state.activeCity === i}
+                active={this.state.selectedCity === i}
                 value={city.value}
               >
                 {city.value}
@@ -59,8 +66,8 @@ class App extends React.Component {
             ))}
           </Switch>
           <p>
-            {`The Eiffel tower is located in:
-            ${cities[activeCity].value}, ${selectedCountry}.`}
+            {`The Eiffel tower is in
+            ${cities[selectedCity].value}, ${selectedCountry}.`}
           </p>
         </div>
       </div>
