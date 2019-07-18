@@ -12,8 +12,9 @@ export const proxy = fn => fnTarget => (...args) => {
 export default class Switch extends Component {
   static propTypes = {
     children: PropTypes.arrayOf(PropTypes.instanceOf(Item)).isRequired,
-    onValueChange: PropTypes.func,
-    onSelection: PropTypes.func,
+    onValueChange: PropTypes.func, // deprecated
+    onSelection: PropTypes.func, // deprecated
+    onItemChanged: PropTypes.func,
     onItemSelected: PropTypes.func,
     tabIndex: PropTypes.number,
     disable: PropTypes.bool,
@@ -22,8 +23,9 @@ export default class Switch extends Component {
   };
 
   static defaultProps = {
-    onValueChange: undefined,
-    onSelection: undefined,
+    onValueChange: undefined, // deprecated
+    onSelection: undefined, // deprecated
+    onItemChanged: undefined,
     onItemSelected: undefined,
     tabIndex: 0,
     disable: false,
@@ -59,9 +61,12 @@ export default class Switch extends Component {
         "Switch component can't have State with default and active property at the same time."
       );
     }
-    if (hasActiveProp && this.props.onValueChange) {
+    if (
+      (hasActiveProp && this.props.onValueChange) ||
+      (hasActiveProp && this.props.onItemChanged)
+    ) {
       throw new Error(
-        "onValueChange() is only available to switch components whose children don't use the 'active' attribute."
+        "onValueChange() | onItemChanged() is only available to switch components whose children don't use the 'active' attribute."
       );
     }
   }
@@ -113,7 +118,10 @@ export default class Switch extends Component {
     this.setState({
       activeIndex: newPosition
     });
-    if (this.props.onValueChange) {
+    const fn = this.props.onValueChange
+      ? this.props.onValueChange
+      : this.props.onItemChanged;
+    if (fn) {
       const child = this.props.children[newPosition];
       const oldPosition = this.state.activeIndex;
       this.props.onValueChange(
@@ -146,6 +154,8 @@ export default class Switch extends Component {
       className,
       onValueChange,
       onSelection,
+      onItemSelected,
+      onItemChanged,
       arrowSelection,
       ...rest
     } = this.props;
@@ -160,9 +170,7 @@ export default class Switch extends Component {
       <div {...rest} className={classes}>
         <div
           onKeyDown={
-            this.props.arrowSelection
-              ? e => this.onSwitchKeyDown(e)
-              : undefined
+            this.props.arrowSelection ? e => this.onSwitchKeyDown(e) : undefined
           }
           className="abg-switch__container"
           role="radiogroup"

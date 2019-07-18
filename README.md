@@ -153,7 +153,7 @@ Sierra `VoiceOver`.
 
 Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
-`onValueChange`| function | No |  "" | Fires whenever the switch changes inner state.
+`onItemChanged`| function | No |  "" | Fires whenever the switch changes inner state.
 `onItemSelected`| function | No |  "" | Fires whenever an Item is selected.
 `disable` | boolean | No | false | Disables the switch.
 `arrowSelection` | boolean | No | true | Enables the selection of Items with arrow keys.
