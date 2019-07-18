@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Overlay } from "./";
+import { Overlay, Item } from "./";
 import "./Switch.scss";
 
 export const proxy = fn => fnTarget => (...args) => {
@@ -11,8 +11,7 @@ export const proxy = fn => fnTarget => (...args) => {
 
 export default class Switch extends Component {
   static propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element)])
-      .isRequired,
+    children: PropTypes.arrayOf(PropTypes.instanceOf(Item)).isRequired,
     onValueChange: PropTypes.func,
     onSelection: PropTypes.func,
     tabIndex: PropTypes.number,
