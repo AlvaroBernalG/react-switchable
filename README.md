@@ -156,7 +156,7 @@ Prop | Type | Required | Default | Description
 `onValueChange`| function | No |  "" | Fires whenever the switch changes inner state.
 `onItemSelected`| function | No |  "" | Fires whenever an Item is selected.
 `disable` | boolean | No | false | Disables the switch.
-`arrowNavigation` | boolean | No | true | Enables the navigation with the arrow keys.
+`arrowSelection` | boolean | No | true | Enables the selection of Items with arrow keys.
 `tabIndex` | number | No | 0 | Sets the [tabIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 Inherits all other properties assigned from the parent component

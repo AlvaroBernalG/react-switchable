@@ -17,7 +17,7 @@ export default class Switch extends Component {
     onItemSelected: PropTypes.func,
     tabIndex: PropTypes.number,
     disable: PropTypes.bool,
-    arrowNavigation: PropTypes.bool,
+    arrowSelection: PropTypes.bool,
     className: PropTypes.string
   };
 
@@ -27,7 +27,7 @@ export default class Switch extends Component {
     onItemSelected: undefined,
     tabIndex: 0,
     disable: false,
-    arrowNavigation: true,
+    arrowSelection: true,
     className: ""
   };
 
@@ -146,6 +146,7 @@ export default class Switch extends Component {
       className,
       onValueChange,
       onSelection,
+      arrowSelection,
       ...rest
     } = this.props;
 
@@ -159,7 +160,7 @@ export default class Switch extends Component {
       <div {...rest} className={classes}>
         <div
           onKeyDown={
-            this.props.arrowNavigation
+            this.props.arrowSelection
               ? e => this.onSwitchKeyDown(e)
               : undefined
           }
