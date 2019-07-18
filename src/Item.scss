@@ -28,8 +28,14 @@
   color: $item_color_onActive;
   font-weight: bold;
   outline: none;
+ &:hover {
+    color: $item_color_onActive;
+  }
 }
 
 .abg-switch__item.abg-switch__item--disable {
   opacity: $item_disable_opacity;
+  &:hover {
+    color: inherit;
+  }
 }
