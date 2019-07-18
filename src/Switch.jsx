@@ -16,6 +16,7 @@ export default class Switch extends Component {
     onSelection: PropTypes.func,
     tabIndex: PropTypes.number,
     disable: PropTypes.bool,
+    arrowNavigation: PropTypes.bool,
     className: PropTypes.string
   };
 
@@ -24,6 +25,7 @@ export default class Switch extends Component {
     onSelection: undefined,
     tabIndex: 0,
     disable: false,
+    arrowNavigation: true,
     className: ""
   };
 
@@ -152,7 +154,11 @@ export default class Switch extends Component {
     return (
       <div {...rest} className={classes}>
         <div
-          onKeyDown={e => this.onSwitchKeyDown(e)}
+          onKeyDown={
+            this.props.arrowNavigation
+              ? e => this.onSwitchKeyDown(e)
+              : undefined
+          }
           className="abg-switch__container"
           role="radiogroup"
           aria-disabled={disable}
