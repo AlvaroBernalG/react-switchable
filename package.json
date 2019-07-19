@@ -82,5 +82,6 @@
   ],
   "dependencies": {
     "prop-types": "^15.6.0"
-  }
+  },
+  "files": ["dist/index.js", "dist/main.css", "README.md"]
 }
