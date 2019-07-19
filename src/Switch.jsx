@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Overlay, Item } from "./";
+import Overlay from "./Overlay";
+import Item from "./Item";
 import "./Switch.scss";
+
+const ofType = (children, Type) => {
+  let isOfType = true;
+  React.Children.forEach(children, child => {
+    if (child.type !== Type) {
+      isOfType = false;
+    }
+  });
+  return isOfType;
+};
 
 export const proxy = fn => fnTarget => (...args) => {
   fn(...args);
@@ -11,7 +22,29 @@ export const proxy = fn => fnTarget => (...args) => {
 
 export default class Switch extends Component {
   static propTypes = {
-    children: PropTypes.arrayOf(PropTypes.instanceOf(Item)).isRequired,
+    children: props => {
+      const { children } = props;
+      if (Array.isArray(children) === false)
+        return new Error("Children must be an array of <Item />.");
+      if (ofType(children, Item) === false)
+        return new Error("Children of Switch must be of type <Item />");
+      const hasDefaultProp = children.some(child => child.props.default);
+      const hasActiveProp = children.some(child => child.props.active);
+      if (hasDefaultProp && hasActiveProp) {
+        return new Error(
+          "Switch component can't have State with default and active property at the same time."
+        );
+      }
+      if (
+        (hasActiveProp && props.onValueChange) ||
+        (hasActiveProp && props.onItemChanged)
+      ) {
+        return new Error(
+          "onValueChange() | onItemChanged() is only available to switch components whose children don't use the 'active' attribute."
+        );
+      }
+      return "";
+    },
     onValueChange: PropTypes.func, // deprecated
     onSelection: PropTypes.func, // deprecated
     onItemChanged: PropTypes.func,
@@ -30,7 +63,8 @@ export default class Switch extends Component {
     tabIndex: 0,
     disable: false,
     arrowSelection: true,
-    className: ""
+    className: "",
+    children: []
   };
 
   static getDerivedStateFromProps(nextProps, state) {
@@ -48,27 +82,6 @@ export default class Switch extends Component {
       };
     }
     return null;
-  }
-
-  constructor(properties) {
-    super(properties);
-    const hasDefaultProp = properties.children.some(
-      child => child.props.default
-    );
-    const hasActiveProp = properties.children.some(child => child.props.active);
-    if (hasDefaultProp && hasActiveProp) {
-      throw new Error(
-        "Switch component can't have State with default and active property at the same time."
-      );
-    }
-    if (
-      (hasActiveProp && this.props.onValueChange) ||
-      (hasActiveProp && this.props.onItemChanged)
-    ) {
-      throw new Error(
-        "onValueChange() | onItemChanged() is only available to switch components whose children don't use the 'active' attribute."
-      );
-    }
   }
 
   state = {

@@ -138,21 +138,6 @@ describe("<Switch />", () => {
 
     expect(wrapper.state().activeIndex).toBe(1);
   });
-
-  it("should throw error if both `active` and `default` are present in any <Item />", () => {
-    expect(() =>
-      mount(
-        <Switch>
-          <Item active value="Hot">
-            Hot
-          </Item>
-          <Item default value="Cold">
-            Cold
-          </Item>
-        </Switch>
-      )
-    ).toThrowError();
-  });
 });
 
 describe("utils", () => {
