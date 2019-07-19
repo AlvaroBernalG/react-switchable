@@ -4,15 +4,17 @@ import Overlay from "./Overlay";
 import Item from "./Item";
 import "./Switch.scss";
 
-const ofType = (children, Type) => {
-  let isOfType = true;
-  React.Children.forEach(children, child => {
-    if (child.type !== Type) {
-      isOfType = false;
+const everyChildren = (children, fn) => {
+  let res = true;
+  React.Children.forEach(children, (...args) => {
+    if (fn(...args) === false) {
+      res = false;
     }
   });
-  return isOfType;
+  return res;
 };
+
+const ofType = (reactChildren, type) => reactChildren.type === type;
 
 export const proxy = fn => fnTarget => (...args) => {
   fn(...args);
@@ -26,8 +28,8 @@ export default class Switch extends Component {
       const { children } = props;
       if (Array.isArray(children) === false)
         return new Error("Children must be an array of <Item />.");
-      if (ofType(children, Item) === false)
-        return new Error("Children of Switch must be of type <Item />");
+      if (everyChildren(children, child => ofType(child, Item)) === false)
+        return new Error("All Children of <Switch /> must be of type <Item />");
       const hasDefaultProp = children.some(child => child.props.default);
       const hasActiveProp = children.some(child => child.props.active);
       if (hasDefaultProp && hasActiveProp) {
