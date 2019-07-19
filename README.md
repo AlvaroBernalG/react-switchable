@@ -78,7 +78,7 @@ Data flow from parent to child :
 ```js
 class App extends React.Commponent {
   state = {
-    activeCountry: 1,
+    selectedCountryIndex: 1,
     countries: [
       { value: "Russia" },
       { value: "Nigeria" },
@@ -92,13 +92,16 @@ class App extends React.Commponent {
       <Switch
         onItemSelected={(selectedIndex) => {
           this.setState({
-            activeCountry: selectedIndex
+            selectedCountryIndex: selectedIndex
           })
         }}
       >
         {countries.map((country, index) => (
-          <Item key={index} active={index === activeCountry} value={country.value}>
-            {country.value}
+          <Item 
+            key={country.value} 
+            active={index === selectedCountryIndex} 
+            value={country.value}>
+              {country.value}
           </Item>
         ))}
       </Switch>
@@ -153,8 +156,9 @@ Sierra `VoiceOver`.
 
 Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
-`onItemChanged`| function | No |  "" | Fires whenever the switch changes inner state.
-`onItemSelected`| function | No |  "" | Fires whenever an Item is selected.
+`onItemChanged`| function | No |  "" | Fires after the selection of an Item.
+`onItemSelected`| function | No |  "" | Fires when an Item is selected.
+`children` | Array[Item] | Yes | [] | A list of Items.
 `disable` | boolean | No | false | Disables the switch.
 `arrowSelection` | boolean | No | true | Enables the selection of Items with arrow keys.
 `tabIndex` | number | No | 0 | Sets the [tabIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
