@@ -83,5 +83,17 @@
   "dependencies": {
     "prop-types": "^15.6.0"
   },
-  "files": ["dist/index.js", "dist/main.css", "README.md"]
+  "files": ["dist/index.js", "dist/main.css", "README.md"],
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": ["./node_modules", "./jest.setup.js"],
+    "setupFiles": ["./jest.setup.js"],
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    }
+  }
 }
