@@ -162,9 +162,9 @@ Sierra `VoiceOver`.
 Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
 `name`| string | Yes |  "" | Unique global identifier.
+`children` | Array[Item] | Yes | [] | A list of Items.
 `onItemChanged`| function | No |  "" | Fires after the selection of an Item.
 `onItemSelected`| function | No |  "" | Fires when an Item is selected.
-`children` | Array[Item] | Yes | [] | A list of Items.
 `disable` | boolean | No | false | Disables the switch.
 `arrowSelection` | boolean | No | true | Enables the selection of Items with arrow keys.
 
