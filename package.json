@@ -1,6 +1,6 @@
 {
   "name": "react-switchable",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "description": "A customizable react switch component",
   "main": "dist/index.js",
   "types": "./main.d.ts",
@@ -84,7 +84,7 @@
   "dependencies": {
     "prop-types": "^15.6.0"
   },
-  "files": ["dist/index.js", "dist/main.css", "README.md"],
+  "files": ["dist/index.js", "dist/main.css", "README.md", "main.d.ts"],
   "jest": {
     "verbose": true,
     "collectCoverage": true,
