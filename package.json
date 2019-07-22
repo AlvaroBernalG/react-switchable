@@ -3,6 +3,7 @@
   "version": "0.3.8",
   "description": "A customizable react switch component",
   "main": "dist/index.js",
+  "types": "./main.d.ts",
   "scripts": {
     "prepublish": "rm -rf dist/ && npm run build",
     "build:example": "babel src -d dist",
