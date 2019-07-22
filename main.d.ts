@@ -17,7 +17,7 @@ declare module 'react-switchable' {
         disable?: boolean;
         arrowSelection?: boolean;
         onItemSelected?: (value: string) => void;
-        onValueChanged?: (value: string) => void;
+        onItemChanged?: (value: string) => void;
     }
 
     export default class Switch extends React.Component<ISwitchProps, {activeIndex: number}> { }
