@@ -1,3 +1,5 @@
+/* eslint react/prop-types: 0 */
+
 import React from "react";
 import PropTypes from "prop-types";
 import "./Item.scss";
@@ -7,16 +9,13 @@ class Item extends React.Component {
     value: PropTypes.string.isRequired,
     children: PropTypes.node,
     disable: PropTypes.bool,
-    active: PropTypes.bool,
-    className: PropTypes.string,
-    name: PropTypes.string.isRequired
+    active: PropTypes.bool
   };
 
   static defaultProps = {
     children: "",
     active: false,
-    disable: false,
-    className: ""
+    disable: false
   };
 
   render() {
