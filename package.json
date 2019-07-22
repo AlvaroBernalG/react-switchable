@@ -1,6 +1,6 @@
 {
   "name": "react-switchable",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "A customizable react switch component",
   "main": "dist/index.js",
   "scripts": {
