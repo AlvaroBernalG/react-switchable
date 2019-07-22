@@ -4,18 +4,26 @@ import { Item } from "../src/";
 
 describe("<Item />", () => {
   it("matches the snapshot", () => {
-    const tree = shallow(<Item value="hot"> hot </Item>);
+    const tree = shallow(
+      <Item name="test" value="hot">
+        hot
+      </Item>
+    );
     expect(tree).toMatchSnapshot();
   });
 
   it("<Item /> matches the snapshot", () => {
-    const tree = shallow(<Item value="hot"> hot </Item>);
+    const tree = shallow(
+      <Item name="item" value="hot">
+        hot
+      </Item>
+    );
     expect(tree).toMatchSnapshot();
   });
 
   it("<Item /> should correctly handle disable Item.", () => {
     const wrapper = shallow(
-      <Item disable value="hot">
+      <Item name="test" disable value="hot">
         hot
       </Item>
     );
@@ -24,7 +32,7 @@ describe("<Item />", () => {
 
   it("<Item /> should correctly handle active Item.", () => {
     const wrapper = shallow(
-      <Item active value="hot">
+      <Item name="test" active value="hot">
         hot
       </Item>
     );
@@ -32,7 +40,11 @@ describe("<Item />", () => {
   });
 
   it("<Item /> should correctly render inner text.", () => {
-    const wrapper = shallow(<Item value="hot">hot</Item>);
+    const wrapper = shallow(
+      <Item name="test" value="hot">
+        hot
+      </Item>
+    );
     expect(wrapper.text()).toBe("hot");
   });
 });

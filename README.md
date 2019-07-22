@@ -30,7 +30,9 @@ npm install react-switchable --save
 import Switch, { Item } from 'react-switchable';
 import 'react-switchable/dist/main.css'
 
-<Switch onItemChanged={newValue => console.log('The new value is => ', newValue)}>
+<Switch 
+  name="temperature"
+  onItemChanged={newValue => console.log('The new value is => ', newValue)}>
   <Item value='Hot'>
     Hot
   </Item>
@@ -49,6 +51,7 @@ import 'react-switchable/dist/main.css'
 <div>
   <h1>What is the capital of Venezuela ?</h1>
   <Switch
+    name="countries"
     onItemChanged={capital => checkAnswer(capital)}>
     <Item value='London'>
       London
@@ -90,6 +93,7 @@ class App extends React.Commponent {
   render() {
     return (
       <Switch
+        name="countries"
         onItemSelected={(selectedIndex) => {
           this.setState({
             selectedCountryIndex: selectedIndex
@@ -121,6 +125,7 @@ class App extends React.Commponent {
   render() {
     return (
       <Switch
+        name="countries"
         onItemChanged={country =>this.setState({ selectedCountry: country })}>
         <Item value="Russia">Russia</Item>
         <Item default value="Nigeria">
@@ -156,12 +161,12 @@ Sierra `VoiceOver`.
 
 Prop | Type | Required | Default | Description
 -----|------|----------|---------|-------------
+`name`| string | Yes |  "" | Unique global identifier.
 `onItemChanged`| function | No |  "" | Fires after the selection of an Item.
 `onItemSelected`| function | No |  "" | Fires when an Item is selected.
 `children` | Array[Item] | Yes | [] | A list of Items.
 `disable` | boolean | No | false | Disables the switch.
 `arrowSelection` | boolean | No | true | Enables the selection of Items with arrow keys.
-`tabIndex` | number | No | 0 | Sets the [tabIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 Inherits all other properties assigned from the parent component
 
@@ -172,7 +177,6 @@ Prop | Type | Required | Default | Description
 `value`| string | Yes |  "" | Represents the Item value.
 `active` | boolean | No | false | Sets the Item as active.
 `disable` | boolean | No | false | Disables the Item.
-`tabIndex` | number | No | 0 | Sets the [tabindex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 Inherits all other properties assigned from the parent component.
 

@@ -56,7 +56,7 @@ describe("<Switch />", () => {
   it("onValueChange() should be called whenever Item changes.", () => {
     const onValueChangeHandler = jest.fn();
     const wrapper = mount(
-      <Switch name="test" onValueChange={onValueChangeHandler}>
+      <Switch name="temperature" onValueChange={onValueChangeHandler}>
         <Item value="Hot">Hot</Item>
         <Item value="Cold">Cold</Item>
       </Switch>
@@ -71,7 +71,7 @@ describe("<Switch />", () => {
   it("onItemChanged() should be called whenever Item changes.", () => {
     const onValueChangeHandler = jest.fn();
     const wrapper = mount(
-      <Switch name="test" onItemChanged={onValueChangeHandler}>
+      <Switch name="temperature" onItemChanged={onValueChangeHandler}>
         <Item value="Hot">Hot</Item>
         <Item value="Cold">Cold</Item>
       </Switch>
@@ -86,7 +86,7 @@ describe("<Switch />", () => {
   it("onValueChange() shouldn't be called when `disable` property is present.", () => {
     const onValueChangeHandler = jest.fn();
     const wrapper = mount(
-      <Switch name="test" disable onSelection={onValueChangeHandler}>
+      <Switch name="temperature" disable onSelection={onValueChangeHandler}>
         <Item value="Hot">Hot</Item>
         <Item active value="Cold">
           Cold
@@ -102,7 +102,7 @@ describe("<Switch />", () => {
 
   it("should be able to change Item with `Arrow` keys.", () => {
     const wrapper = mount(
-      <Switch name="tempareture">
+      <Switch name="temperature">
         <Item value="Hot">Hot</Item>
         <Item default value="Cold">
           Cold
