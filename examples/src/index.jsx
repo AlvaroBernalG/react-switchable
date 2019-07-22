@@ -32,6 +32,7 @@ class App extends React.Component {
         <div className="quiz">
           <h1>Where is the Eiffel tower?</h1>
           <Switch
+            name="countries"
             arrowSelection={false}
             onItemChanged={country =>
               this.setState({ selectedCountry: country })
@@ -47,6 +48,7 @@ class App extends React.Component {
             <Item value="France">France</Item>
           </Switch>
           <Switch
+            name="cities"
             onItemSelected={index => {
               this.setState({
                 ...this.state,

@@ -54,7 +54,8 @@ export default class Switch extends Component {
     tabIndex: PropTypes.number,
     disable: PropTypes.bool,
     arrowSelection: PropTypes.bool,
-    className: PropTypes.string
+    className: PropTypes.string,
+    name: PropTypes.string.isRequired
   };
 
   static defaultProps = {
@@ -151,7 +152,8 @@ export default class Switch extends Component {
         child.props.onKeyDown
       ),
       tabIndex: this.props.disable ? -1 : child.props.tabIndex,
-      active: this.state.activeIndex === index
+      active: this.state.activeIndex === index,
+      name: this.props.name
     };
   }
 
@@ -161,6 +163,7 @@ export default class Switch extends Component {
       children,
       tabIndex,
       className,
+      name,
       onValueChange,
       onSelection,
       onItemSelected,

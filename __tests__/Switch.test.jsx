@@ -4,7 +4,7 @@ import Switch, { Item } from "../src/";
 import { proxy } from "../src/Switch";
 
 const SnapShot = () => (
-  <Switch>
+  <Switch name="temperature">
     <Item value="cold">cold</Item>
     <Item active value="hot">
       hot
@@ -26,7 +26,7 @@ describe("<Switch />", () => {
   it("[Deprecated] onSelection() should be called whenever a Item is selected.", () => {
     const onSelection = jest.fn();
     const wrapper = mount(
-      <Switch onSelection={onSelection}>
+      <Switch name="temperature" onSelection={onSelection}>
         <Item value="Hot">Hot</Item>
         <Item value="Cold">Cold</Item>
       </Switch>
@@ -41,7 +41,7 @@ describe("<Switch />", () => {
   it("onItemSelected() should be called whenever a Item is selected.", () => {
     const onSelection = jest.fn();
     const wrapper = mount(
-      <Switch onItemSelected={onSelection}>
+      <Switch name="temperature" onItemSelected={onSelection}>
         <Item value="Hot">Hot</Item>
         <Item value="Cold">Cold</Item>
       </Switch>
@@ -56,7 +56,7 @@ describe("<Switch />", () => {
   it("onValueChange() should be called whenever Item changes.", () => {
     const onValueChangeHandler = jest.fn();
     const wrapper = mount(
-      <Switch onValueChange={onValueChangeHandler}>
+      <Switch name="test" onValueChange={onValueChangeHandler}>
         <Item value="Hot">Hot</Item>
         <Item value="Cold">Cold</Item>
       </Switch>
@@ -71,7 +71,7 @@ describe("<Switch />", () => {
   it("onItemChanged() should be called whenever Item changes.", () => {
     const onValueChangeHandler = jest.fn();
     const wrapper = mount(
-      <Switch onItemChanged={onValueChangeHandler}>
+      <Switch name="test" onItemChanged={onValueChangeHandler}>
         <Item value="Hot">Hot</Item>
         <Item value="Cold">Cold</Item>
       </Switch>
@@ -86,7 +86,7 @@ describe("<Switch />", () => {
   it("onValueChange() shouldn't be called when `disable` property is present.", () => {
     const onValueChangeHandler = jest.fn();
     const wrapper = mount(
-      <Switch disable onSelection={onValueChangeHandler}>
+      <Switch name="test" disable onSelection={onValueChangeHandler}>
         <Item value="Hot">Hot</Item>
         <Item active value="Cold">
           Cold
@@ -102,7 +102,7 @@ describe("<Switch />", () => {
 
   it("should be able to change Item with `Arrow` keys.", () => {
     const wrapper = mount(
-      <Switch>
+      <Switch name="tempareture">
         <Item value="Hot">Hot</Item>
         <Item default value="Cold">
           Cold
@@ -121,7 +121,7 @@ describe("<Switch />", () => {
 
   it("should be able to change Item with `Enter` key.", () => {
     const wrapper = mount(
-      <Switch>
+      <Switch name="temperature">
         <Item value="Hot">Hot</Item>
         <Item default value="Cold">
           Cold
@@ -139,7 +139,7 @@ describe("<Switch />", () => {
 
   it("should not allow to change the state if `active` property is present.", () => {
     const wrapper = mount(
-      <Switch>
+      <Switch name="temperature">
         <Item value="Hot">Hot</Item>
         <Item active value="Cold">
           Cold

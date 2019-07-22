@@ -8,7 +8,8 @@ class Item extends React.Component {
     children: PropTypes.node,
     disable: PropTypes.bool,
     active: PropTypes.bool,
-    className: PropTypes.string
+    className: PropTypes.string,
+    name: PropTypes.string.isRequired
   };
 
   static defaultProps = {
@@ -19,7 +20,7 @@ class Item extends React.Component {
   };
 
   render() {
-    const { active, className, disable, value, ...rest } = this.props;
+    const { name, active, className, disable, value, ...rest } = this.props;
 
     const classes = [
       "abg-switch__item",
@@ -38,7 +39,7 @@ class Item extends React.Component {
         aria-disabled={disable}
       >
         {this.props.children}
-        <input type="radio" value={value} defaultChecked={active} />
+        <input type="radio" value={value} name={name} defaultChecked={active} />
       </span>
     );
   }
