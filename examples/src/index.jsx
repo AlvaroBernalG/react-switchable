@@ -33,7 +33,7 @@ class App extends React.Component {
           <h1>Where is the Eiffel tower?</h1>
           <Switch
             arrowSelection={false}
-            onValueChange={country =>
+            onItemChanged={country =>
               this.setState({ selectedCountry: country })
             }
           >

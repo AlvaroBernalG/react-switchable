@@ -133,18 +133,12 @@ export default class Switch extends Component {
     this.setState({
       activeIndex: newPosition
     });
-    const fn = this.props.onValueChange
-      ? this.props.onValueChange
-      : this.props.onItemChanged;
-    if (fn) {
+    const { onValueChange, onItemChanged } = this.props;
+    const fn = onValueChange !== undefined ? onValueChange : onItemChanged;
+    if (fn !== undefined) {
       const child = this.props.children[newPosition];
       const oldPosition = this.state.activeIndex;
-      this.props.onValueChange(
-        child.props.value,
-        newPosition,
-        oldPosition,
-        child
-      );
+      fn(child.props.value, newPosition, oldPosition, child);
     }
   }
 

@@ -68,6 +68,21 @@ describe("<Switch />", () => {
     expect(onValueChangeHandler.mock.calls.length).toBe(1);
   });
 
+  it("onItemChanged() should be called whenever Item changes.", () => {
+    const onValueChangeHandler = jest.fn();
+    const wrapper = mount(
+      <Switch onItemChanged={onValueChangeHandler}>
+        <Item value="Hot">Hot</Item>
+        <Item value="Cold">Cold</Item>
+      </Switch>
+    );
+    wrapper
+      .find("Item")
+      .at(1)
+      .simulate("click");
+    expect(onValueChangeHandler.mock.calls.length).toBe(1);
+  });
+
   it("onValueChange() shouldn't be called when `disable` property is present.", () => {
     const onValueChangeHandler = jest.fn();
     const wrapper = mount(

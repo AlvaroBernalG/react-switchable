@@ -30,7 +30,7 @@ npm install react-switchable --save
 import Switch, { Item } from 'react-switchable';
 import 'react-switchable/dist/main.css'
 
-<Switch onValueChange={newValue => console.log('The new value is => ', newValue)}>
+<Switch onItemChanged={newValue => console.log('The new value is => ', newValue)}>
   <Item value='Hot'>
     Hot
   </Item>
@@ -49,7 +49,7 @@ import 'react-switchable/dist/main.css'
 <div>
   <h1>What is the capital of Venezuela ?</h1>
   <Switch
-    onValueChange={capital => checkAnswer(capital)}>
+    onItemChanged={capital => checkAnswer(capital)}>
     <Item value='London'>
       London
     </Item>
