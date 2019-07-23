@@ -29,16 +29,15 @@ class Item extends React.Component {
     ].join(" ");
 
     return (
-      <span
-        className={classes}
-        {...rest}
-        role="radio"
-        tabIndex={disable ? -1 : 0}
-        aria-checked={active}
-        aria-disabled={disable}
-      >
+      <span className={classes} tabIndex={disable ? -1 : 0} {...rest}>
         {this.props.children}
-        <input type="radio" value={value} name={name} defaultChecked={active} />
+        <input
+          tabIndex={disable ? -1 : 0}
+          type="radio"
+          value={value}
+          name={name}
+          defaultChecked={active}
+        />
       </span>
     );
   }

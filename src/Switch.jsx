@@ -177,7 +177,7 @@ export default class Switch extends Component {
     } = this.props;
 
     const classes = [
-      "abg-switch",
+      "abg-switch abg-switch__container",
       className,
       disable ? "abg-switch--disable" : ""
     ].join(" ");
@@ -185,27 +185,23 @@ export default class Switch extends Component {
     const FinalOverlay = CustomOverlay ? CustomOverlay : Overlay; // eslint-disable-line no-unneedeed-ternary
 
     return (
-      <div {...rest} className={classes}>
-        <div
-          onKeyDown={
-            this.props.arrowSelection ? e => this.onSwitchKeyDown(e) : undefined
-          }
-          className="abg-switch__container"
-          role="radiogroup"
-          aria-disabled={disable}
-          tabIndex={disable ? -1 : tabIndex}
-        >
-          {React.Children.map(children, (child, index) =>
-            React.cloneElement(
-              child,
-              this.injectChildCapabilities(child, index)
-            )
-          )}
-          <FinalOverlay
-            selectedIndex={this.state.activeIndex}
-            totalItems={children.length}
-          />
-        </div>
+      <div
+        {...rest}
+        className={classes}
+        onKeyDown={
+          this.props.arrowSelection ? e => this.onSwitchKeyDown(e) : undefined
+        }
+        role="radiogroup"
+        aria-disabled={disable}
+        tabIndex={disable ? -1 : tabIndex}
+      >
+        {React.Children.map(children, (child, index) =>
+          React.cloneElement(child, this.injectChildCapabilities(child, index))
+        )}
+        <FinalOverlay
+          selectedIndex={this.state.activeIndex}
+          totalItems={children.length}
+        />
       </div>
     );
   }
