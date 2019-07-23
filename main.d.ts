@@ -5,6 +5,7 @@ declare module 'react-switchable' {
     export interface IItemProps extends React.HTMLAttributes<HTMLInputElement>{
         value: string;
         children: any;
+        default?: boolean;
         disable?: boolean;
         active?: boolean;
     }

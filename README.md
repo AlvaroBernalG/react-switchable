@@ -177,6 +177,7 @@ Prop | Type | Required | Default | Description
 `value`| string | Yes |  "" | Represents the Item value.
 `active` | boolean | No | false | Sets the Item as active.
 `disable` | boolean | No | false | Disables the Item.
+`default` | boolean | No | false | Which Item should be active by default.
 
 Inherits all other properties assigned from the parent component.
 
