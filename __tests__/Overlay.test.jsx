@@ -4,7 +4,7 @@ import { Overlay } from "../src/";
 
 describe("<Overlay />", () => {
   it("matches the snapshot", () => {
-    const tree = shallow(<Overlay goTo={0} items={2} />);
+    const tree = shallow(<Overlay selectedIndex={0} totalItems={2} />);
     expect(tree).toMatchSnapshot();
   });
 });

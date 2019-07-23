@@ -1,3 +1,4 @@
+/* eslint no-unneeded-ternary: 0 */
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Overlay from "./Overlay";
@@ -55,7 +56,8 @@ export default class Switch extends Component {
     disable: PropTypes.bool,
     arrowSelection: PropTypes.bool,
     className: PropTypes.string,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    customOverlay: PropTypes.func
   };
 
   static defaultProps = {
@@ -63,6 +65,7 @@ export default class Switch extends Component {
     onSelection: undefined, // deprecated
     onItemChanged: undefined,
     onItemSelected: undefined,
+    customOverlay: undefined,
     tabIndex: 0,
     disable: false,
     arrowSelection: true,
@@ -169,6 +172,7 @@ export default class Switch extends Component {
       onItemSelected,
       onItemChanged,
       arrowSelection,
+      customOverlay: CustomOverlay,
       ...rest
     } = this.props;
 
@@ -177,6 +181,8 @@ export default class Switch extends Component {
       className,
       disable ? "abg-switch--disable" : ""
     ].join(" ");
+
+    const FinalOverlay = CustomOverlay ? CustomOverlay : Overlay; // eslint-disable-line no-unneedeed-ternary
 
     return (
       <div {...rest} className={classes}>
@@ -195,7 +201,10 @@ export default class Switch extends Component {
               this.injectChildCapabilities(child, index)
             )
           )}
-          <Overlay goTo={this.state.activeIndex} items={children.length} />
+          <FinalOverlay
+            selectedIndex={this.state.activeIndex}
+            totalItems={children.length}
+          />
         </div>
       </div>
     );

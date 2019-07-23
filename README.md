@@ -167,6 +167,7 @@ Prop | Type | Required | Default | Description
 `onItemSelected`| function | No |  "" | Fires when an Item is selected.
 `disable` | boolean | No | false | Disables the switch.
 `arrowSelection` | boolean | No | true | Enables the selection of Items with arrow keys.
+`customOverlay` | Overlay | No | undefined | Enables the use of a custom overlay React component.
 
 Inherits all other properties assigned from the parent component
 
@@ -180,6 +181,16 @@ Prop | Type | Required | Default | Description
 `default` | boolean | No | false | Which Item should be active by default.
 
 Inherits all other properties assigned from the parent component.
+
+### Overlay
+
+Prop | Type | Required | Default | Description
+-----|------|----------|---------|-------------
+`selectedIndex`| number | Yes |  "" | The selected Item index.
+`totalItems` | number | Yes | "" | The total number of Items.
+
+Inherits all other properties assigned from the parent component.
+
 
 
 ## Related
