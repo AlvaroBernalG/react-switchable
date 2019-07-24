@@ -57,7 +57,8 @@ export default class Switch extends Component {
     arrowSelection: PropTypes.bool,
     className: PropTypes.string,
     name: PropTypes.string.isRequired,
-    customOverlay: PropTypes.func
+    customOverlay: PropTypes.func,
+    onKeyDown: PropTypes.func
   };
 
   static defaultProps = {
@@ -65,6 +66,7 @@ export default class Switch extends Component {
     onSelection: undefined, // deprecated
     onItemChanged: undefined,
     onItemSelected: undefined,
+    onKeyDown: undefined,
     customOverlay: undefined,
     tabIndex: 0,
     disable: false,
@@ -146,7 +148,7 @@ export default class Switch extends Component {
     }
   }
 
-  injectChildCapabilities(child, index) {
+  getItemProps(child, index) {
     return {
       onClick: proxy(this.onStateClicked.bind(this, index))(
         child.props.onClick
@@ -173,6 +175,7 @@ export default class Switch extends Component {
       onItemChanged,
       arrowSelection,
       customOverlay: CustomOverlay,
+      onKeyDown,
       ...rest
     } = this.props;
 
@@ -182,21 +185,23 @@ export default class Switch extends Component {
       disable ? "abg-switch--disable" : ""
     ].join(" ");
 
-    const FinalOverlay = CustomOverlay ? CustomOverlay : Overlay; // eslint-disable-line no-unneedeed-ternary
+    const FinalOverlay = CustomOverlay ? CustomOverlay : Overlay;
 
     return (
       <div
-        {...rest}
-        className={classes}
-        onKeyDown={
-          this.props.arrowSelection ? e => this.onSwitchKeyDown(e) : undefined
-        }
         role="radiogroup"
         aria-disabled={disable}
         tabIndex={disable ? -1 : tabIndex}
+        {...rest}
+        className={classes}
+        onKeyDown={
+          arrowSelection
+            ? proxy((...args) => this.onSwitchKeyDown(...args))(onKeyDown)
+            : this.props.onKeyDown
+        }
       >
         {React.Children.map(children, (child, index) =>
-          React.cloneElement(child, this.injectChildCapabilities(child, index))
+          React.cloneElement(child, this.getItemProps(child, index))
         )}
         <FinalOverlay
           selectedIndex={this.state.activeIndex}
